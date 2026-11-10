@@ -1,0 +1,1618 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import BottomBar from "../components/BottomBar.astro";
+import FAQ from "../components/FAQ.astro";
+
+const AFFILIATE =
+  "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lottu-bonus.com/#org",
+      name: "Lottu",
+      url: "https://lottu-bonus.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://lottu-bonus.com/android-chrome-512x512.png",
+      },
+      sameAs: [
+        "https://www.instagram.com/lottubet.br/",
+        "https://www.facebook.com/lottubet/?locale=pt_BR",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lottu-bonus.com/#website",
+      url: "https://lottu-bonus.com",
+      name: "Lottu Bet",
+      publisher: { "@id": "https://lottu-bonus.com/#org" },
+      inLanguage: "pt-BR",
+    },
+  ],
+});
+
+const faqItems = [
+  {
+    question: "O que é o Lottu Bônus?",
+    answer:
+      "É uma oferta de boas-vindas que concede 100% de bônus sobre o valor do primeiro depósito para novos usuários do cassino.",
+  },
+  {
+    question: "Qual o depósito mínimo para ativar a promoção?",
+    answer:
+      "O valor mínimo pode variar, mas geralmente as promoções da Lottu Bet são ativadas com depósitos a partir de R$20 via PIX.",
+  },
+  {
+    question: "Posso sacar o bônus imediatamente?",
+    answer:
+      "Não. Todo bônus de cassino possui um requisito de apostas (rollover) que deve ser cumprido antes que o saldo promocional seja convertido em dinheiro real disponível para saque.",
+  },
+  {
+    question: "Qual é o prazo para usar o bônus?",
+    answer:
+      "O Lottu Bônus tem um prazo de validade, geralmente entre 7 e 30 dias após a ativação. Se o prazo expirar sem que o rollover seja concluído, o bônus será cancelado.",
+  },
+  {
+    question: "Posso usar o bônus em qualquer jogo?",
+    answer:
+      "Não. O bônus é geralmente elegível apenas para slots (caça-níqueis). Jogos de mesa como roleta e blackjack podem ter contribuição reduzida ou nenhuma contribuição para o rollover.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+});
+
+const videoStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Slots em Alta na Lottu Bet",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Fortune Tiger",
+      url: AFFILIATE,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Gates of Olympus",
+      url: AFFILIATE,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Fortune Dragon",
+      url: AFFILIATE,
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Sweet Bonanza",
+      url: AFFILIATE,
+    },
+  ],
+});
+
+const gameCards = [
+  {
+    name: "Fortune Tiger",
+    alt: "Jogo do tigrinho",
+    img: "fortune-tiger.8dcedc6c.webp",
+    slug: "jogos/slots/fortune-tiger",
+  },
+  {
+    name: "Fortune Ox",
+    alt: "Fortune Ox",
+    img: "fortune-ox.3239fa13.png",
+    slug: "jogos/slots/fortune-ox",
+  },
+  {
+    name: "Fortune Mouse",
+    alt: "Fortune Mouse",
+    img: "fortune-mouse.74d704b9.png",
+    slug: "jogos/slots/fortune-mouse",
+  },
+  {
+    name: "Gates of Olympus",
+    alt: "Véio do raio",
+    img: "gates.c32d972e.webp",
+    slug: "jogos/slots/gates-of-olympus",
+  },
+  {
+    name: "Fortune Rabbit",
+    alt: "Fortune Rabbit",
+    img: "fortune-rabbit.e7528540.png",
+    slug: "jogos/slots/fortune-rabbit",
+  },
+  {
+    name: "Spaceman",
+    alt: "Spaceman",
+    img: "spaceman.12ec01cb.webp",
+    slug: "jogos/crash-games/spaceman",
+  },
+  { name: "Bac Bo", alt: "Bac Bo", img: "bacbo.c4ca5791.webp", slug: "jogos/cassino-ao-vivo/bac-bo" },
+  {
+    name: "Aviator",
+    alt: "Jogo do aviãozinho",
+    img: "aviator.d3afc165.webp",
+    slug: "jogos/crash-games/aviator",
+  },
+  {
+    name: "Balloon",
+    alt: "Balloon",
+    img: "balloon.6680e423.png",
+    slug: "jogos/crash-games/balloon",
+  },
+  {
+    name: "Sweet Bonanza",
+    alt: "Sweet Bonanza",
+    img: "sweet-bonanza.13cdde6b.webp",
+    slug: "jogos/slots/sweet-bonanza",
+  },
+  {
+    name: "Blackjack 1",
+    alt: "Blackjack 1",
+    img: "blackjack.244e62f4.avif",
+    slug: "jogos/cassino-ao-vivo/blackjack",
+  },
+];
+
+const videoCards = [
+  {
+    title: "Fortune Tiger",
+    badge: "PG Soft",
+    video: "fortune-tiger.webm",
+    poster: "fortune-tiger.8dcedc6c.webp",
+    href: AFFILIATE,
+    label: "Fortune Tiger Jogo - Lottu Bônus de Apostas",
+    desc: "O Fortune Tiger é um dos slots mais procurados para utilizar o bônus, com mecânica simples e ritmo dinâmico.",
+  },
+  {
+    title: "Gates of Olympus",
+    badge: "Pragmatic Play",
+    video: "gates-olympus.webm",
+    poster: "gates.c32d972e.webp",
+    href: AFFILIATE,
+    label: "Gates of Olympus Multiplicador - Site Lottu",
+    desc: "O Gates of Olympus combina alta volatilidade, multiplicadores e rodadas grátis em uma página própria de exibição.",
+  },
+  {
+    title: "Fortune Dragon",
+    badge: "PG Soft",
+    video: "fortune-dragon.webm",
+    poster: "hero-bg.webp",
+    href: AFFILIATE,
+    label: "Fortune Dragon Slot - Bônus Lottu 2026",
+    desc: "O Fortune Dragon agora também tem página dedicada de exibição com vídeo e dados estruturados válidos.",
+  },
+  {
+    title: "Sugar Rush",
+    badge: "Pragmatic Play",
+    video: "sugar.webm",
+    poster: "sweet-bonanza.13cdde6b.webp",
+    href: AFFILIATE,
+    label: "Sugar Rush Max Win - Melhores Slots Lottu",
+    desc: "A demonstração do Sugar Rush está associada à página dedicada do Sweet Bonanza para exibição adequada do vídeo.",
+  },
+];
+
+const bonusBtnSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 7V20M12 7H8.46429C7.94332 7 7.4437 6.78929 7.07533 6.41421C6.70695 6.03914 6.5 5.53043 6.5 5C6.5 4.46957 6.70695 3.96086 7.07533 3.58579C7.4437 3.21071 7.94332 3 8.46429 3C11.2143 3 12 7 12 7ZM12 7H15.5357C16.0567 7 16.5563 6.78929 16.9247 6.41421C17.293 6.03914 17.5 5.53043 17.5 5C17.5 4.46957 17.293 3.96086 16.9247 3.58579C16.5563 3.21071 16.0567 3 15.5357 3C12.7857 3 12 7 12 7ZM5 12H19V17.8C19 18.9201 19 19.4802 18.782 19.908C18.5903 20.2843 18.2843 20.5903 17.908 20.782C17.4802 21 16.9201 21 15.8 21H8.2C7.07989 21 6.51984 21 6.09202 20.782C5.71569 20.5903 5.40973 20.2843 5.21799 19.908C5 19.4802 5 18.9201 5 17.8V12ZM4.6 12H19.4C19.9601 12 20.2401 12 20.454 11.891C20.6422 11.7951 20.7951 11.6422 20.891 11.454C21 11.2401 21 10.9601 21 10.4V8.6C21 8.03995 21 7.75992 20.891 7.54601C20.7951 7.35785 20.6422 7.20487 20.454 7.10899C20.2401 7 19.9601 7 19.4 7H4.6C4.03995 7 3.75992 7 3.54601 7.10899C3.35785 7.20487 3.20487 7.35785 3.10899 7.54601C3 7.75992 3 8.03995 3 8.6V10.4C3 10.9601 3 11.2401 3.10899 11.454C3.20487 11.6422 3.35785 11.7951 3.54601 11.891C3.75992 12 4.03995 12 4.6 12Z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+
+const gamepadSvg = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"></path></svg>`;
+
+const chartSvg = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z"></path></svg>`;
+
+const chevronDelays = [
+  0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96, 1.08, 1.2, 1.32,
+];
+---
+
+<BaseLayout
+  title="Lottu Bônus 2026: Ative sua Promoção e Jogue no Cassino"
+  description="Descubra como ativar o Lottu Bônus de boas-vindas. Dobre seu primeiro depósito e aproveite os melhores slots como Fortune Tiger e Gates of Olympus."
+  keywords="lottu bonus, lottu bônus, bonus lottu, cassino online, slots"
+  canonical="https://lottu-bonus.com/"
+  structuredData={structuredData}
+  preloads={[
+    {
+      href: "/assets/media/hero-bg.webp",
+      as: "image",
+      type: "image/webp",
+      fetchpriority: "high",
+    },
+  ]}
+>
+  <Header slot="before-main" variant="home" />
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1 class="hero__title">
+          <span class="accent-text">Lottu Bônus:</span> O Guia Completo para Ativar
+          sua Promoção
+        </h1>
+        <p class="hero__sub">
+          Dobre seu primeiro depósito e aproveite os melhores slots do cassino
+          online. Saiba tudo sobre como ativar e usar o Lottu Bônus em <span
+            id="current-year-hero">2026</span
+          >.
+        </p>
+      </div>
+      <div class="hero__scroll-pattern">
+        <div class="chevron-pattern">
+          {
+            chevronDelays.map((delay) => (
+              <div class="chevron-col">
+                <svg
+                  class="chevron"
+                  width="32"
+                  height="16"
+                  viewBox="0 0 32 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={`animation-delay: ${delay}s`}
+                >
+                  <polyline
+                    points="2,2 16,14 30,2"
+                    stroke="#f8d441"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+                <svg
+                  class="chevron chevron--second"
+                  width="32"
+                  height="16"
+                  viewBox="0 0 32 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={`animation-delay: ${delay + 0.32}s`}
+                >
+                  <polyline
+                    points="2,2 16,14 30,2"
+                    stroke="#f8d441"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={videoStructuredData} />
+
+    <section class="grid-section" id="videos" aria-label="Slots Pagando Hoje">
+      <div class="container">
+        <h2 class="grid-section__header">
+          Jogos Populares para Usar seu Lottu Bônus
+        </h2>
+        <div class="responsive-grid">
+          {
+            videoCards.map((card) => (
+              <div class="grid-item">
+                <a
+                  href={card.href}
+                  class="video-card"
+                  aria-label={card.label}
+                >
+                  <div class="video-card__media">
+                    <video
+                      src={`/assets/media/${card.video}`}
+                      poster={`/assets/media/${card.poster}`}
+                      playsinline
+                      autoplay
+                      muted
+                      loop
+                      preload="metadata"
+                      aria-label={card.label}
+                    />
+                  </div>
+                  <div class="video-card__overlay">
+                    <span class="video-card__badge">{card.badge}</span>
+                  </div>
+                  <div class="video-card__info">
+                    <h3 class="video-card__title">{card.title}</h3>
+                  </div>
+                  <div class="video-card__bonus-btn">
+                    <button type="button" class="btn-video-end">
+                      <Fragment set:html={bonusBtnSvg} />
+                      <span>Ativar Bônus Lottu</span>
+                    </button>
+                  </div>
+                </a>
+                <div class="grid__yt-link">
+                  <a href={card.href}>
+                    {card.desc}
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="games" id="games">
+      <div class="container">
+        <div class="games-content">
+          <h2>Jogos mais populares da Lottu Bet</h2>
+          <div class="card-game-list">
+            {
+              gameCards.map((game) => (
+                <div class="card-game">
+                  <img
+                    alt={game.alt}
+                    title={game.name}
+                    loading="lazy"
+                    width="320"
+                    height="320"
+                    decoding="async"
+                    class="card-game-image"
+                    style="color: transparent"
+                    src={`/assets/media/${game.img}`}
+                  />
+                  <h3>{game.name}</h3>
+                  <div class="card-buttons">
+                    <a
+                      href={AFFILIATE}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      class="btn primary"
+                    >
+                      <Fragment set:html={gamepadSvg} />
+                      Jogar
+                    </a>
+                    <a href={`/${game.slug}`} class="btn secondary">
+                      <Fragment set:html={chartSvg} />
+                      Análise
+                    </a>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          <a
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            href={AFFILIATE}
+            >Ver todos os jogos <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="vertical-align: middle;"
+              ><path
+                d="M7 6l5 6-5 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M13 6l5 6-5 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="more-promos" id="more-promos">
+      <div class="container">
+        <h2>Mais promoções e guias</h2>
+        <div
+          class="influencer-image"
+          id="influencer-card-image"
+          role="button"
+          tabindex="0"
+        >
+          <a
+            href={AFFILIATE}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="btn secondary"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 576 512"
+              height="18"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"
+              ></path>
+            </svg>
+            Ativar bônus na Lottu Bet
+          </a>
+          <img
+            alt="Carlinhos Maia mostrando o site da Lottu Bet no celular"
+            title="Carlinhos Maia mostrando o site da Lottu Bet no celular"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="630"
+            style="position: absolute; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; color: transparent; object-fit: cover;"
+            src="/assets/media/carlinhos-capa-site.e89a7664.avif"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div class="about-advantages">
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-content">
+            <h2>
+              Sobre o Lottu Bônus, a maior e mais completo fansite da Lottu
+            </h2>
+            <p>
+              A Lottu Bônus é uma página independente e autorizada pelo Grupo
+              Esportes da Sorte criada por fãs que mostra uma análise completa
+              do cassino tanto para aqueles que se interessem a ingressar na
+              Lottu Bet como para já quem tem uma conta na casa de apostas.<br
+              /><br />No site, você encontra desde avaliações e opiniões sobre
+              os jogos mais populares da plataforma até divulgação de promoções
+              para jogadores já cadastrados. O conteúdo do site é constantemente
+              atualizado e todos os links disponibilizados são oficiais.<br
+              /><br />Pronto para se aventurar no mundo da Lottu bet? Confira
+              abaixo todos os detalhes sobre o cassino. No menu (indicado pelas
+              três barras horizontais no canto superior do seu celular), você
+              pode conferir mais sobre os jogos mais populares da Lottu, com o
+              link para jogar cada um deles.
+            </p>
+            <a
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              title="site oficial da Lottu"
+              href={AFFILIATE}
+            >
+              Ir para o site oficial
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 6l5 6-5 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M13 6l5 6-5 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="advantages" id="advantages">
+        <div class="container">
+          <h2>POR QUE JOGAR NA LOTTU CASSINO?</h2>
+          <h3>LOTTU BET VANTAGENS</h3>
+          <div class="text-grid">
+            <div class="text-card">
+              <div class="header-card">
+                <h4>SEGURANÇA</h4>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 448 512"
+                  height="23"
+                  width="23"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                  ></path>
+                </svg>
+              </div>
+              <p>
+                A Lottu Bet é dos mesmos criadores da Esporte da Sorte, uma das
+                casas de apostas esportivas mais famosas no Brasil
+              </p>
+            </div>
+            <div class="text-card">
+              <div class="header-card">
+                <h4>VARIEDADE</h4>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 640 512"
+                  height="28"
+                  width="28"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"
+                  ></path>
+                </svg>
+              </div>
+              <p>
+                Você vai achar os jogos de cassino mais populares da atualidade:
+                desde roleta até o Tigrinho ou Aviator
+              </p>
+            </div>
+            <div class="text-card">
+              <div class="header-card">
+                <h4>PROMOÇÕES</h4>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  height="24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"
+                  ></path>
+                </svg>
+              </div>
+              <p>
+                Frequentemente a Lottu cassino oferece promoções para seus
+                usuários aproveitarem a plataforma ao máximo
+              </p>
+            </div>
+          </div>
+          <a
+            href={AFFILIATE}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="btn ghost">Cadastre-se</a
+          >
+        </div>
+      </section>
+    </div>
+
+    <section class="play-in" id="play-in">
+      <div class="container">
+        <div class="play-in-content">
+          <div class="play-in-text">
+            <div class="card-text-play-in">
+              <h2>Jogue no cassino da Lottu Bet</h2>
+              <p>
+                A Lottu Bet Cassino foi lançada em 2023 pelos mesmos criadores
+                do Esporte da Sorte. Na Lottu Bet você pode jogar os jogos de
+                cassino mais populares, como slots, casino ao vivo e jogos de
+                crash. A plataforma também é conhecida por sua segurança e
+                confiabilidade, com tecnologia avançada para garantir que todas
+                as transações e informações pessoais dos jogadores sejam
+                protegidas.
+              </p>
+              <a
+                href={AFFILIATE}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                class="btn primary">Cadastrar-se</a
+              >
+            </div>
+            <div class="card-text-play-in">
+              <h2>Como se cadastrar na Lottu Bet</h2>
+              <p>
+                Você não precisa fazer um download para jogar na plataforma. A
+                equipe da Lottu Bet é apaixonada por proporcionar uma
+                experiência de cassino online segura, emocionante e de fácil
+                acesso. A Lottu Cassino entende que ninguém gosta de esperar
+                para se divertir, então projetamos nosso processo de inscrição
+                para ser tão simples quanto ABC. Siga estes passos infalíveis
+                para abrir as portas para o seu novo destino de jogos favorito!
+              </p>
+              <ol class="order-list">
+                <li>
+                  Clique no botão no seu computador ou faça o Lottu Bet login
+                  pelo <a
+                    title="login na lottu"
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    href={AFFILIATE}>site</a
+                  > para criar conta;
+                </li>
+                <li>
+                  Preencha o formulário com seus dados: nome, CPF, e-mail,
+                  telefone, nome de usuário e senha;
+                </li>
+                <li>
+                  Verifique se todas as informações inseridas estão corretas;
+                </li>
+                <li>
+                  Leia os termos de uso da Lottu, e se você concordar, clique em
+                  &quot;Criar Conta&quot;;
+                </li>
+                <li>Valide o seu e-mail.</li>
+                <li>
+                  E caso você já tenha uma conta, <a
+                    title="Login na Lottu"
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    href={AFFILIATE}
+                    >clique aqui e confirme a sua conta Lottu Bet</a
+                  > a plataforma, para continuar se divertindo com segurança.
+                </li>
+              </ol>
+              <p>
+                Simples assim, agora você já pode acessar a <a
+                  title="login na lottu"
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  href={AFFILIATE}>lottu.bet.br</a
+                > login e se divertir a valer, tanto pelo computador como pelo aplicativo
+                Lottu app. Você não precisar Lottu baixar jogos para desfrutarr das
+                inúmeras opções de jogos, pode jogar online e esperar que Lottu vem
+                com tudo a sorte está lançada!
+              </p>
+            </div>
+          </div>
+          <div class="play-in-image">
+            <img
+              alt="Interface Lottu"
+              title="Interface Lottu"
+              loading="lazy"
+              decoding="async"
+              width="390"
+              height="844"
+              style="position: absolute; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; color: transparent; object-fit: cover;"
+              src="/assets/media/iPhone-15.707b4619.avif"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" id="support">
+      <div class="container">
+        <div class="support-content">
+          <h2>Suporte ao cliente da Lottu Bet Cassino</h2>
+          <p>
+            Um excelente serviço ao cliente é a chave para uma experiência de
+            jogo online de sucesso. É por isso que a Lottubet oficial está
+            comprometida em fornecer assistência de alta qualidade aos seus
+            jogadores. O Chat ao Vivo é a principal opção de contato entre os
+            jogadores e o Lottu Bet Casino com uma equipe preparada 24 horas por
+            dia, 7 dias por semana, para lidar com qualquer questão que possa
+            surgir.<br /><br />Não importa se você tem uma pergunta sobre uma
+            promoção ou enfrenta problemas técnicos, a equipe de suporte da
+            Lottu Bet Casino está sempre disponível e pronta para ajudar. A
+            eficiência e a rapidez da nossa equipe garantem que os jogadores
+            possam desfrutar da sua experiência de apostas online sem
+            preocupações, permitindo que eles se concentrem no que realmente
+            importa - a diversão do jogo.
+          </p>
+          <a
+            href={AFFILIATE}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="btn primary">Cadastrar-se</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness">
+      <div class="container">
+        <div class="trustworthiness-content">
+          <h2>A Lottu Bet é confiável?</h2>
+          <p>
+            A Lottu Bet Casino foi criada pelos mesmos criadores da Esporte da
+            Sorte, uma plataforma de apostas esportivas e cassino online,
+            operada pela renomada HSF Gaming N.V. e tem uma licença de Curaçao.
+            Esta licença internacional assegura aos jogadores que estão usando
+            uma plataforma confiável e segura, onde o jogo justo é de suma
+            importância.<br /><br />A reputação da Lottu Bet é reforçada pelo
+            fato de que a nossa empresa matriz, Esportes da Sorte, patrocina
+            times de futebol brasileiros e apoia equipes de eSports. Isso
+            demonstra a solidez financeira da empresa e sua capacidade de pagar
+            prêmios aos jogadores em tempo hábil. A Lottu bet jogo de aposta
+            também orgulhosamente conta com embaixadores da marca renomados, que
+            ajudam a aumentar a visibilidade da marca e reforçar sua reputação
+            como uma das plataformas mais confiáveis para jogos de azar online.<br
+            /><br />Famosos também tem falado sobre jogos online e dado dicas
+            sobre os melhores jogos e melhores plataformas e o Lottu bet
+            Carlinhos Maia é um dos que mais interage com os jogadores.<br /><br
+            />Então você pode ficar tranquilo, a Lottu bet é confiável e paga
+            mesmo! A Lottu bet plataforma está sempre um passo à frente,
+            buscando oferecer o que há de melhor para seus jogadores. Pode
+            relaxar e aproveitar. Inclusive, a plataforma Lottu bet é na lista
+            das plataformas regulamentadas. A Lottu bet está legalizada e pode
+            atuar online. E a sua Lottu bet Brasil!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness">
+      <div class="container">
+        <div class="trustworthiness-content">
+          <h2>A Lottu Bet no Reclame Aqui</h2>
+          <p>
+            A Lottu Bet valoriza a opinião de seus usuários e se esforça para
+            fornecer a melhor experiência possível. Atualmente, a Lottu Bet
+            recebeu 875 reclamações no ReclameAqui e dessas, 871 foram atendidas
+            e resolvidas de maneira oportuna com um índice de solução de 90.1%.
+            Isso destaca o compromisso da equipe de suporte da Lottu Bet Casino
+            em atender as necessidades de seus usuários de maneira eficiente.
+            Isso faz a Lottu ser um dos cassinos online brasileiros mais bem
+            avaliado.<br /><br />Isso mostra o compromisso da Lottu em resolver
+            todas as questões levantadas pelos jogadores demonstra a seriedade
+            com que é o tratamento de todas as consultas e preocupações. A Lottu
+            acredita que cada jogador merece ser ouvido e é isso que motiva a
+            equipe de suporte da Lottu fornecer um suporte ao cliente
+            excepcional, 24 horas por dia, 7 dias por semana.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-withdraw">
+      <div class="container">
+        <div class="trustworthiness-content">
+          <h2>Lottu Bet como sacar</h2>
+          <p>
+            Com o objetivo de proporcionar a melhor experiência de cassino
+            online, a Lottu Bet abraçou o Pix, a forma de pagamento mais popular
+            e inovadora no Brasil. Este método de transferência instantânea,
+            disponível 24/7, possibilita aos jogadores da Lottu Bet efetuar
+            depósitos e saques de forma rápida e segura, tornando a experiência
+            de jogo ainda mais tranquila e agradável.<br /><br />Qualquer dúvida
+            ou questão sobre transações Pix, como depositar ou como sacar, podem
+            ser rapidamente resolvidas graças ao nosso Live Chat. Com um
+            atendimento ao cliente responsivo e sempre disposto a ajudar, a
+            Lottu Bet tem como prioridade oferecer um ambiente de jogo seguro,
+            eficiente e agradável. Assim, seja para depositar ou para sacar seus
+            ganhos, a Lottu Bet e o Pix estão aqui para garantir transações
+            rápidas, seguras e descomplicadas.
+          </p>
+          <a
+            href={AFFILIATE}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="btn primary">Jogar Cassino</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="diversity">
+      <div class="container">
+        <div class="diversity-content">
+          <h2>Diversidade de apostas na Lottu Cassino</h2>
+          <p>
+            O Lottu Bet tem orgulho de oferecer uma extensa seleção de jogos
+            para seus jogadores, inclusive sem precisar baixar para se divertir.
+            Seja você um amante dos clássicos de cassino como Blackjack, Roleta
+            e Pôquer, ou prefira a emoção dos modernos jogos de Crash como Lottu
+            Aviator (jogo do Aviãozinho) e Lottu Spaceman (jogo do Foguetinho
+            indicado inclusive pelo influencer Lottu Carlinhos Maia) ou até
+            mesmo o Lottu Bet Mines, entrar no nosso cassino online vai te
+            proporcionar uma experiência incrível porque ele tem tudo para você.<br
+            /><br />Com novos jogos sendo adicionados regularmente, nunca há um
+            momento de tédio no site Lottu Bet. Nosso catálogo de jogos está
+            sempre evoluindo, para manter nossa oferta fresca e emocionante.
+            Além disso, nossos jogos vêm de provedores de software de primeira
+            linha, garantindo que você sempre terá acesso aos jogos mais
+            recentes e de maior qualidade e sem precisa fazer download para
+            apostar no seu jogo favorito.<br /><br />Independentemente do
+            dispositivo que você está usando, seja ele seu computador em casa ou
+            o Lottu Bet apk no seu smartphone, a experiência de jogo do Lottu
+            Bet é consistentemente de alto padrão. Não precisa fazer um Lottu
+            login para desfrutar de gráficos nítidos, jogabilidade suave e
+            interfaces de usuário intuitivas. A qualidade e variedade do Lottu
+            Bet cassino online é inigualável e você vai apostar e se divertir
+            como nunca. Vem para a Lottu jogar! A Lottu Bet vem com tudo!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="interface">
+      <div class="container">
+        <div class="interface-content">
+          <h2>Interface do site da Lottu Bet</h2>
+          <p>
+            O site do Lottu Casino foi projetado para ser intuitivo e fácil de
+            usar. Com uma interface amigável, fazer o Lottu entrar é super
+            simples e mesmo aqueles que são novos no mundo das apostas online
+            podem navegar pelo site com facilidade. A página inicial apresenta
+            as opções de jogos e promoções de forma clara, permitindo que os
+            usuários encontrem rapidamente o que estão procurando.<br /><br />O
+            design responsivo do site também garante que os jogadores possam
+            desfrutar dos jogos de cassino no Lottu de qualquer dispositivo,
+            seja um computador, smartphone ou tablet. A qualidade gráfica dos
+            jogos é mantida em todos os dispositivos, proporcionando uma
+            experiência de jogo imersiva onde quer que você esteja.
+          </p>
+          <a
+            href={AFFILIATE}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="btn primary">Apostar em esportes</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="responsible" class="responsible">
+      <div class="container">
+        <div class="cassino-content">
+          <h2>Jogos de Cassino na Lottu Bet</h2>
+          <p>
+            O Lottu Bet tem orgulho de oferecer uma extensa seleção de jogos
+            para seus jogadores. Seja você um amante dos clássicos de cassino
+            como Roleta, Blackjack e Pôquer, ou prefire a emoção dos slots
+            online como o Lottu Tigrinho (Fortune Tiger), a Lottu Bet tem tudo
+            para você.<br /><br />Com novos jogos sendo adicionados
+            regularmente, nunca há um momento de tédio no Lottu Bet. Nosso
+            catálogo de jogos está sempre evoluindo, para manter nossa oferta
+            fresca e emocionante. Além disso, nossos jogos vêm de provedores de
+            software de primeira linha, garantindo que você sempre terá acesso
+            aos jogos mais recentes e de maior qualidade.<br /><br
+            />Independentemente do dispositivo que você está usando, seja ele
+            seu computador em casa ou o aplicativo Lottu Bet no seu smartphone,
+            a experiência de jogo do Lottu Bet é consistentemente de alto
+            padrão. Com gráficos nítidos, jogabilidade suave e interfaces de
+            usuário intuitivas, a qualidade do nosso cassino é inigualável.
+          </p>
+        </div>
+      </div>
+      <div class="container bonus">
+        <div class="bonus-content">
+          <h2>Lottubet bônus e promoções</h2>
+          <p>
+            A Lottu Bet Cassino oferece torneios e <a
+              title="login na lottu"
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              href={AFFILIATE}>Lottu Bônus</a
+            > sendo oferecidos quase de forma semanal tanto pelo site oficial como
+            pelas redes sociais.<br /><br />Para acompanhar todas as promoções,
+            basta acessar a nossa página de <a title="promoções" href="#videos"
+              >Promoções da Lottu bet</a
+            >, onde sempre anunciamos as promoções oferecidas pela plataforma.<br
+            /><br />Independentemente do dispositivo que você está usando, seja
+            ele seu computador em casa ou o aplicativo Lottu Bet no seu
+            smartphone, a experiência de jogo do Lottu Bet é consistentemente de
+            alto padrão. Com gráficos nítidos, jogabilidade suave e interfaces
+            de usuário intuitivas, a qualidade do nosso cassino é inigualável.
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="bonus-content">
+          <h2>Lottu Bet jogo responsável</h2>
+          <p>
+            Uma das maiores preocupações quando se fala em jogos de cassino
+            online e apostas esportivas, é que a pessoa perca o controle de sua
+            banca e aposte mais do que deveria, deixando-se levar pela ânsia de
+            ganhar muito dinheiro. Essa é uma preocupação real e deve ser levada
+            a sério e por isso é essencial que o jogador tenha cautela, e antes
+            de iniciar as apostas delimite um valor total e não ultrapasse o
+            valor estipulado de acordo com suas possibilidades financeiras.<br
+            /><br />Há muitas postagens na internet que buscam atrair jogadores,
+            promessas de ganhos elevados, posts sobre Lottu Bet horários
+            pagantes e até promoções de plataformas que não são confiáveis.
+            Então antes de tudo, é necessário fazer uma pesquisa prévia para
+            saber sobre a segurança da plataforma que você escolheu jogar. Por
+            exemplo, a Lottu Bet paga mesmo, a Lottu bet é confiável e isso já
+            traz uma segurança para o jogador.<br /><br />Além disso, é
+            necessário ter em mente que os jogos de cassino online foram
+            desenvolvidos para proporcionar diversão e laser, esse é o objetivo
+            principal, os lucros são consequências que podem vir ou não, afinal,
+            a probabilidade de ganhar e perder em jogos, seja ele qual for, é
+            sempre a mesma.<br /><br />Por isso, jogue de forma responsável, se
+            divirta se aventurando nos diversos tipos de jogos mas crie
+            estratégias de jogo antes das partidas para te ajudar a manter um
+            maior equilíbrio. Não fique muitas horas jogando e ao perceber que
+            está envolvido demais no jogo, dê pausas, se desconecte, volte a
+            jogar um outro dia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>Dúvidas Frequentes sobre o Lottu Bônus</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <BottomBar slot="after-footer" />
+
+  <script is:inline>
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  /* === Hero === */
+  .hero {
+    margin: 0 auto;
+    height: 90vh;
+    max-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xxl);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/media/hero-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(0.4);
+    z-index: 0;
+  }
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 var(--spacing-lg);
+    text-align: center;
+  }
+  .hero__title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--spacing-md);
+  }
+  .hero__sub {
+    position: relative;
+    z-index: 1;
+  }
+  .hero__scroll-pattern {
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    height: 50px;
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+  .chevron-pattern {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .chevron-col {
+    position: relative;
+    bottom: 0;
+    width: 32px;
+    height: 100px;
+  }
+  .chevron-col .chevron {
+    position: absolute;
+    bottom: 0;
+    animation: chevron-down 1.25s linear infinite;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px #f8d441cc);
+    will-change: transform, opacity;
+  }
+  @keyframes chevron-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chevron-col .chevron {
+      animation: none;
+      opacity: 0.5;
+      transform: translateY(0);
+    }
+  }
+
+  /* === Grid Section (video cards) === */
+  .grid-section {
+    overflow: hidden;
+  }
+  .grid-section__title {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  .grid-section__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-inline: var(--spacing-xs);
+  }
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    width: 100%;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: stretch;
+  }
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .grid__yt-link {
+    padding: var(--spacing-sm);
+    line-height: 1.1;
+  }
+  .grid__yt-link a {
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .grid__yt-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* === Video Card === */
+  .video-card {
+    display: block;
+    position: relative;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: var(--shadow-md);
+    width: 320px;
+    margin: 0 auto;
+    height: 460px;
+  }
+  .video-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .video-card__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .video-card__media img,
+  .video-card__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .video-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    display: flex;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .video-card__badge {
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .video-card__info {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--spacing-sm) 0;
+    width: 100%;
+  }
+  .video-card__title {
+    color: #fff;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.04rem;
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+  }
+  .video-card__bonus-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 38%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-video-end {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: 0.6rem 1.75rem;
+    background: linear-gradient(180deg, #ffea47 15%, #ffb347 100%);
+    color: #161616;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-xl);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    font-size: var(--fs-sm);
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      box-shadow 0.2s;
+  }
+  .btn-video-end:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* === Games Section === */
+  .games {
+    background: var(--background-two);
+  }
+  .games-content h2 {
+    text-align: center;
+  }
+  .games-content a:not(.btn) {
+    display: block;
+    text-align: end;
+    transition: 0.2s ease-in-out;
+  }
+  .games-content a:not(.btn):hover {
+    color: var(--color-accent);
+  }
+  img[alt="Roleta ao vivo"] {
+    object-position: top;
+  }
+
+  /* === Game Cards === */
+  .card-game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) auto;
+  }
+  .card-game-list {
+    width: 100%;
+    justify-content: center;
+  }
+  .card-game {
+    max-width: 220px;
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-direction: column;
+    text-align: center;
+    margin: var(--spacing-md) auto;
+    width: 100%;
+  }
+  .card-game-image {
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: var(--shadow-white);
+  }
+  .card-game h3 {
+    font-size: var(--font-xs);
+    font-weight: 500;
+  }
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+  }
+
+  /* === More Promos === */
+  .more-promos {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+  }
+  .more-promos h2 {
+    color: var(--color-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+  }
+  .influencer-image {
+    position: relative;
+    width: 50vw;
+    aspect-ratio: 4/2;
+    margin: var(--spacing-xl) auto 0;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.7),
+      0 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    object-fit: contain;
+  }
+  .influencer-image .btn {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    max-width: 320px;
+    bottom: 10%;
+    left: 1rem;
+    background-color: #080808;
+    animation: pulse 1s ease-in infinite;
+    gap: var(--spacing-sm);
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1.04);
+    }
+    50% {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.04);
+    }
+  }
+  .influencer-image .btn:hover {
+    transform: scale(1.02);
+  }
+
+  /* === About / Advantages === */
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .about-content a {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: end;
+    margin-top: var(--spacing-lg);
+    gap: 4px;
+  }
+  .about-content a:hover {
+    color: var(--color-accent);
+  }
+  .advantages h2 {
+    text-align: center;
+    font-size: var(--font-lg);
+  }
+  .advantages .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .advantages .btn {
+    align-self: center;
+  }
+  .advantages h3 {
+    text-align: center;
+    font-size: var(--font-xxl);
+    margin-block: var(--spacing-lg);
+  }
+
+  /* === Text Grid / Cards === */
+  .text-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+    width: 100%;
+    margin: var(--spacing-lg) auto var(--spacing-xl);
+    gap: var(--spacing-xl);
+    justify-content: center;
+  }
+  .header-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 var(--spacing-sm);
+    border-bottom: 1px solid #ffffff1e;
+  }
+  .text-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: 22px;
+    background-color: #0e1118d2;
+    border-radius: var(--radius-md);
+    border: 1px solid #ffffff1e;
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-md);
+  }
+  .advantages button {
+    color: var(--color-text);
+    margin-block: var(--spacing-md);
+    border-color: var(--color-text);
+  }
+  .advantages button:hover {
+    background-color: var(--color-text);
+  }
+
+  /* === Play In === */
+  .play-in-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .play-in-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+    max-width: 700px;
+  }
+  .play-in-image {
+    position: relative;
+    width: 25%;
+    aspect-ratio: 2/4;
+  }
+  .card-text-play-in {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .card-text-play-in ol {
+    padding: var(--spacing-sm) 0;
+    padding-left: 2rem;
+  }
+  .card-text-play-in ol li {
+    padding: 1px 0;
+  }
+  .card-text-play-in ol li a {
+    font-size: var(--font-sm);
+  }
+  .card-text-play-in button {
+    margin-block: var(--spacing-sm) 0;
+    margin-inline: 0;
+  }
+
+  /* === Content Sections === */
+  .responsible {
+    background-color: var(--color-text);
+    color: var(--color-dark);
+  }
+  .container.bonus {
+    padding-block: var(--spacing-xs);
+  }
+  .bonus-content,
+  .cassino-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .trustworthiness {
+    background-color: var(--color-text);
+  }
+  .trustworthiness h2,
+  .trustworthiness p,
+  .trustworthiness li,
+  .bonus-content h2,
+  .bonus-content p,
+  .cassino-content h2,
+  .cassino-content p {
+    color: var(--color-dark);
+  }
+  #diversity .container {
+    padding-block: var(--spacing-sm);
+  }
+  .diversity-content,
+  .interface-content,
+  .support-content,
+  .trustworthiness-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .interface-content .btn,
+  .support-content .btn,
+  .trustworthiness-content .btn,
+  .diversity-content .btn,
+  .about-content .btn,
+  .card-text-play-in .btn {
+    margin-block: var(--spacing-md) !important;
+  }
+
+  /* === FAQ (wrapper) === */
+  .faq h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+  .faq-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 1024px) {
+    .play-in-content {
+      gap: var(--spacing-lg);
+      flex-direction: column;
+    }
+    .card-text-play-in ol {
+      text-align: start;
+    }
+    .card-text-play-in button {
+      margin-block: var(--spacing-sm) 0;
+      margin-inline: auto;
+    }
+    .play-in-image {
+      width: 100%;
+      max-width: 25vw;
+    }
+    .influencer-image {
+      width: 100%;
+      max-width: 540px;
+    }
+    .chevron-col:nth-child(n + 9) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-section__header {
+      justify-content: center;
+      border-bottom: none;
+      margin-bottom: var(--spacing-lg);
+    }
+    .video-card:hover {
+      transform: none;
+      box-shadow: var(--shadow-md);
+    }
+    .text-card {
+      text-align: start;
+    }
+    .influencer-image .btn {
+      bottom: 10px;
+      left: 10px;
+    }
+    .influencer-image {
+      max-width: 400px;
+    }
+    .chevron-col:nth-child(n + 5) {
+      display: none;
+    }
+    .chevron-col .chevron {
+      filter: none;
+    }
+    .card-game-list {
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    }
+    .card-game {
+      max-width: 220px;
+    }
+    .card-buttons {
+      flex-direction: column;
+      align-self: center;
+      padding: 0;
+      gap: var(--spacing-md);
+    }
+    .card-buttons .btn {
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .card-buttons .btn {
+      max-width: 280px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .card-game {
+      max-width: 100%;
+    }
+    .card-buttons .btn {
+      width: fit-content;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .card-buttons .btn {
+      margin: 0;
+      max-width: 100%;
+    }
+  }
+
+  /* === Content-visibility: skip rendering of off-screen sections === */
+  .about,
+  .advantages,
+  .play-in,
+  .support,
+  .faq,
+  .more-promos {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  /* === Reduced motion === */
+  @media (prefers-reduced-motion: reduce) {
+    .chevron,
+    .chevron--second {
+      animation: none !important;
+    }
+    .influencer-image .btn {
+      animation: none !important;
+    }
+    .btn {
+      transition: none !important;
+    }
+  }
+</style>

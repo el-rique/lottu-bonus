@@ -1,0 +1,91 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como começar a jogar Fortune Dragon?", answer: "Crie sua conta no Lottu, acesse o cassino, procure por Fortune Dragon e defina o valor da aposta antes de girar." },
+  { question: "O Fortune Dragon funciona no celular?", answer: "Sim. O jogo é compatível com celulares, tablets e computadores, com interface adaptada para telas menores." },
+  { question: "Quais recursos tornam o Fortune Dragon popular?", answer: "O slot costuma combinar tema oriental, símbolos premium e rodadas dinâmicas, o que atrai quem busca partidas rápidas e visuais marcantes." },
+  { question: "Posso usar bônus no Fortune Dragon?", answer: "Sim, desde que o jogo esteja elegível para a promoção ativa na plataforma e dentro das regras de rollover." },
+  { question: "Existe estratégia garantida para ganhar?", answer: "Não. O resultado é aleatório; a melhor prática é controlar a banca, definir limites e jogar com responsabilidade." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "/assets/media/hero-bg.webp", as: "image", type: "image/webp" },
+];
+---
+
+<BaseLayout
+  title="Fortune Dragon | Slot do Dragão - Lottu Cassino"
+  description="Conheça o Fortune Dragon e veja como funciona esse slot popular para usar bônus no Lottu Cassino."
+  keywords="fortune dragon, slot do dragão, fortune dragon lottu, bonus cassino"
+  canonical="https://lottu-bonus.com/jogos/slots/fortune-dragon"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Fortune Dragon no Lottu Cassino</h1>
+          <p>O Fortune Dragon é um slot com visual marcante e partidas rápidas, ideal para quem procura entretenimento e ação no cassino online.</p>
+          <img src="/assets/media/hero-bg.webp" alt="Fortune Dragon no Lottu Cassino" title="Fortune Dragon - Lottu Cassino" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE E ATIVE SEU BÔNUS</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como funciona o Fortune Dragon</h2>
+          <p>O Fortune Dragon tem partidas rápidas, visual temático marcante e mecânica simples para quem quer jogar com praticidade no cassino online.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como aproveitar melhor o jogo</h2>
+          <ul>
+            <li>Defina um limite de banca antes de começar.</li>
+            <li>Teste valores menores de aposta nas primeiras rodadas.</li>
+            <li>Confira se o jogo participa da promoção ativa.</li>
+            <li>Jogue sempre com responsabilidade.</li>
+          </ul>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>CADASTRE-SE E JOGUE</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Fortune Dragon FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

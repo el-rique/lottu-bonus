@@ -1,0 +1,120 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Sweet Bonanza?", answer: "Crie uma conta no Lottu, faça login, busque por Sweet Bonanza na seção Cassino, ajuste o valor da aposta e clique em girar." },
+  { question: "Posso jogar Sweet Bonanza em dispositivos móveis?", answer: "Sim. Sweet Bonanza é compatível com celulares e tablets; a interface é responsiva e otimizada para telas menores." },
+  { question: "Como funcionam as quedas (cascata) e os multiplicadores?", answer: "Símbolos vencedores desaparecem e novos caem no lugar (cadeia de quedas), permitindo ganhos consecutivos; multiplicadores aleatórios podem aparecer e se somam quando ocorrem múltiplos multiplicadores na mesma rodada." },
+  { question: "Como comprar o bônus de giros grátis e quanto custa?", answer: "É possível comprar o bônus diretamente por 100x o valor da aposta (ex.: aposta R$1 → custo do bônus R$100); essa opção garante scatters na próxima rodada e ativa os giros grátis." },
+  { question: "Existe alguma estratégia recomendada para Sweet Bonanza?", answer: "Gerencie o saldo, defina limites de perda/ganho, considere comprar bônus apenas quando fizer sentido para sua banca e use o modo demo para testar antes de apostar com dinheiro real." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/sweet-bonanza.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Sweet-Bonanza.jpg", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Sweet Bonanza | Slot de Doces - Jogue no Lottu Cassino"
+  description="Jogue Sweet Bonanza no Lottu: combine símbolos, aproveite quedas em cascata, multiplicadores e giros grátis. Veja como funciona e multiplique seus ganhos."
+  keywords="sweet bonanza, slot de doces, sweet bonanza lottu, pragmatic play"
+  canonical="https://lottu-bonus.com/jogos/slots/sweet-bonanza"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogo do <strong>Sweet Bonanza</strong> é no <br/>Lottu Cassino</h1>
+          <img src="/assets/media/sweet-bonanza.avif" alt="Sweet Bonanza slot doces online cassino" title="Jogar Sweet Bonanza no Lottu - Slot doces" />
+          <p>O Sweet Bonanza é um slot online com tema de doces.<br/>O jogo tem uma grade de 6x5 e você ganha ao combinar 8 ou mais símbolos iguais em qualquer lugar da tela durante uma rodada.</p>
+        </div>
+        <div class="botao"><a class="register" title="jogue Sweet Bonanza" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Jogue e multiplique seus ganhos!</a></div>
+      </div>
+    </section>
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <h2>Como Jogar no <strong>Sweet Bonanza</strong></h2>
+        <p>Sweet Bonanza possui 9 símbolos que pagam de acordo com a quantidade de símbolos iguais que você conseguir em uma única rodada.</p>
+        <table class="payment-table">
+          <thead>
+            <tr>
+              <th>Símbolo</th>
+              <th>8-9 Símbolos</th>
+              <th>10-11 Símbolos</th>
+              <th>12+ Símbolos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Banana</td><td>R$0,25</td><td>R$0,75</td><td>R$2,00</td></tr>
+            <tr><td>Uva Roxa</td><td>R$0,40</td><td>R$0,90</td><td>R$4,00</td></tr>
+            <tr><td>Melancia</td><td>R$0,50</td><td>R$1,00</td><td>R$5,00</td></tr>
+            <tr><td>Ameixa</td><td>R$0,80</td><td>R$1,20</td><td>R$8,00</td></tr>
+            <tr><td>Maçã</td><td>R$1,00</td><td>R$1,50</td><td>R$10,00</td></tr>
+            <tr><td>Retângulo Azul</td><td>R$1,50</td><td>R$2,00</td><td>R$12,00</td></tr>
+            <tr><td>Pentágono Verde</td><td>R$2,00</td><td>R$5,00</td><td>R$15,00</td></tr>
+            <tr><td>Quadrado Roxo</td><td>R$2,50</td><td>R$10,00</td><td>R$25,00</td></tr>
+            <tr><td>Coração Vermelho</td><td>R$10,00</td><td>R$25,00</td><td>R$50,00</td></tr>
+          </tbody>
+        </table>
+        <p class="description-1real">Pagamentos com base em uma aposta de R$1,00</p>
+        <h3>Jogando Sweet Bonanza de Forma Simples</h3>
+        <p>A função de queda (cascata) permite ganhar várias vezes em uma única rodada: símbolos vencedores somem e novos caem no lugar. Há multiplicadores aleatórios de até 100x e a vitória máxima pode atingir valores muito altos.</p>
+        <div class="how-to-play-information">
+          <div><img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Sweet-Bonanza.jpg" alt="Tutorial Sweet Bonanza como jogar" title="Aprenda a jogar Sweet Bonanza no Lottu" class="img-horizontal" /></div>
+          <div class="botao"><a class="register" title="jogue Sweet Bonanza" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do <strong>Sweet Bonanza</strong></h2>
+          <p>Jogar Sweet Bonanza no <strong>Lottu Cassino</strong> é prático para sacar suas recompensas. Acesse seu perfil, selecione Sacar, escolha o método (PIX, transferência), informe o valor mínimo e confirme.</p>
+        </div>
+      </div>
+    </section>
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde jogar o Sweet Bonanza</h2>
+          <ol>
+            <li>Cadastre-se no site (menos de 2 minutos).</li>
+            <li>Acesse a seção Cassino.</li>
+            <li>Procure por Sweet Bonanza e comece a girar.</li>
+          </ol>
+          <div class="botao"><a class="register" title="jogue Sweet Bonanza" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Sweet Bonanza FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

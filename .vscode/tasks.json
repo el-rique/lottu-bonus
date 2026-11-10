@@ -1,0 +1,185 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Fix mojibake in Astro pages",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-c",
+				"from pathlib import Path; folders=[Path('src/pages/jogos'), Path('src/jogos')]; fixed=0\nfor folder in folders:\n    if not folder.exists():\n        continue\n    for path in folder.rglob('*.astro'):\n        text = path.read_text(encoding='utf-8', errors='ignore')\n        original = text\n        if any(token in text for token in ['Ã','Â','â€','â†']):\n            try:\n                recoded = text.encode('latin1').decode('utf-8')\n                if recoded.count('Ã') + recoded.count('Â') + recoded.count('â€') <= text.count('Ã') + text.count('Â') + text.count('â€'):\n                    text = recoded\n            except Exception:\n                pass\n        cleanup = {'Â ': ' ', 'Â': ''}\n        for bad, good in cleanup.items():\n            text = text.replace(bad, good)\n        if text != original:\n            path.write_text(text, encoding='utf-8')\n            fixed += 1\nprint(f'fixed_files={fixed}')"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run encoding repair",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				".copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run encoding repair rooted",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Debug encoding sample",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Debug bad line sample",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Apply selective encoding repair",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Apply final encoding cleanup",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Apply emoji cleanup",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build Astro site",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Serve dist locally",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"http.server",
+				"4173",
+				"--directory",
+				"dist"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Remove temporary fix script",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-Command",
+				"Remove-Item -Force 'c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot/fix_encoding.py'; if (Test-Path 'c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot' -PathType Container) { $items = Get-ChildItem 'c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot'; if ($items.Count -eq 0) { Remove-Item -Force 'c:/Users/luish/OneDrive/Documentos/GitHub/lottu-bonus-v2-2/.copilot' } }"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Astro after cleanup",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Astro after video removal",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Astro after FAQ fix",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Astro after FAQ typography fix",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Astro after header link fix",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

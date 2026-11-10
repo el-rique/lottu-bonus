@@ -1,0 +1,203 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Fortune Mouse?", answer: "Para começar a jogar Fortune Mouse, basta criar uma conta no Lottu, acessar o cassino e selecionar o jogo Fortune Mouse no menu principal." },
+  { question: "Posso jogar Fortune Mouse em dispositivos móveis?", answer: "Sim. O Fortune Mouse é totalmente compatível com celulares, tablets e computadores, permitindo jogar onde quiser." },
+  { question: "Há um limite de tempo para fazer o saque?", answer: "Não há limite de tempo específico para saques, mas é importante verificar os prazos e métodos disponíveis na plataforma do Lottu." },
+  { question: "Qual é o melhor horário para jogar Fortune Mouse?", answer: "O melhor horário é aquele em que você estiver mais tranquilo e focado, garantindo uma experiência de jogo mais equilibrada e divertida." },
+  { question: "Existe alguma estratégia para jogar Fortune Mouse?", answer: "Planejar suas apostas, jogar com responsabilidade e aproveitar os bônus do Rato da Fortuna são boas práticas para otimizar seus ganhos." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/fortune-mouse.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Fortune-mouse-telo-jogo.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Fortune Mouse | Jogo do Ratinho - Lottu Cassino"
+  description="Jogue Fortune Mouse no Lottu Cassino: símbolos especiais, rodadas rápidas e prêmios de até 1000x. Veja como funciona, aprenda a jogar e aumente suas chances."
+  keywords="fortune mouse, jogo do ratinho, fortune mouse lottu, slot"
+  canonical="https://lottu-bonus.com/jogos/slots/fortune-mouse"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogue <strong>Fortune Mouse</strong><br />e Multiplique seus Ganhos</h1>
+          <p>Jogue Fortune Mouse no Lottu!<br />Explore símbolos e multiplicadores especiais nesse popular
+            slot.<br />Cadastre-se e multiplique seus ganhos!</p><img src="/assets/media/fortune-mouse.webp"
+            alt="Lottu da sorte - Fortune Mouse" title="Jogo do ratinho Fortune Mouse no Lottu" />
+          <p>O <strong>Fortune Mouse</strong>, mais conhecido como jogo do ratinho, é um dos slots mais populares no
+            universo dos jogos online.<br />Portanto, se você busca diversão e grandes prêmios, o<strong> Lottu</strong>
+            é o lugar certo para jogar.</p><br />
+        </div>
+        <div class="botao"><a class="register" title="jogue Fortune Mouse" target="_blank" rel="noopener noreferrer"
+            href={AFFILIATE}>JOGUE
+            E TENHA CHANCES DE GANHAR!</a></div>
+      </div>
+    </section>
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar no Jogo do <strong>Fortune Mouse</strong></h2>
+          <p>Imagine uma máquina caça-níquel 🎰 que aumenta suas chances de ganhar prêmios incríveis.<br />Esse é o
+            <strong>jogo do ratinho!</strong><br />Em outras palavras, é fácil e divertido.<br />Para jogar, basta
+            seguir esses passos simples:</p>
+          <ol>
+            <li>Use os botões - e + para ajustar o valor da aposta.</li>
+            <li>Clique no botão verde para começar a rodada.</li>
+            <li>Torça para combinar 3 símbolos iguais!</li>
+          </ol>
+          <p>O valor mínimo de aposta é de apenas R$ 0,50, e você pode ganhar até 1000 vezes o valor da sua aposta!
+            Jogue com responsabilidade para aproveitar ao máximo.</p>
+        </div>
+        <div class="how-to-play-information"><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/Fortune-mouse-telo-jogo.jpg"
+            alt="Como Jogar no Jogo do Fortune Mouse" title="Guia para jogar Fortune Mouse no Lottu" />
+          <div class="botao"><a class="register" title="jogue Fortune Mouse" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como Ganhar no Jogo do Ratinho</h2>
+          <p>Para ganhar no <strong>Fortune Mouse</strong>, combine 3 símbolos iguais em uma das 5 linhas de pagamento.
+            Cada símbolo possui um valor diferente, conforme mostrado abaixo:</p>
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Símbolo</th>
+                <th>Pagamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Amendoim</td>
+                <td>R$0,60</td>
+              </tr>
+              <tr>
+                <td>Tangerina</td>
+                <td>R$1</td>
+              </tr>
+              <tr>
+                <td>Fogo de Artifício</td>
+                <td>R$2</td>
+              </tr>
+              <tr>
+                <td>Saco de Moedas</td>
+                <td>R$6</td>
+              </tr>
+              <tr>
+                <td>Envelope com Dinheiro</td>
+                <td>R$10</td>
+              </tr>
+              <tr>
+                <td>Artefato Vermelho e Dourado</td>
+                <td>R$20</td>
+              </tr>
+              <tr>
+                <td>Rato da Fortuna (Wild)</td>
+                <td>R$60</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="description-1real"><strong>Pagamentos baseados em apostas de R$1.</strong></p>
+          <ul>
+            <li><strong>Wild:</strong> Representado pelo Rato da Fortuna com a palavra Wild. Ele substitui outros
+              símbolos para formar combinações vencedoras.</li>
+          </ul>
+          <p><strong>Recurso Especial – Bônus do Rato da Fortuna:</strong> Pode ser ativado aleatoriamente, aumentando
+            as chances de combinações premiadas e grandes ganhos!</p>
+          <div class="botao"><a class="register" title="jogue Fortune Mouse" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>JOGUE
+              E TENHA CHANCES DE GANHAR!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do Ratinho</h2>
+          <ol>
+            <li>Acesse o seu perfil no Lottu.</li>
+            <li>Vá até a seção "Saque".</li>
+            <li>Escolha o método (PIX, transferência, etc.).</li>
+            <li>Informe o valor mínimo de R$10.</li>
+            <li>Confirme e receba em minutos!</li>
+          </ol>
+          <p>O processo é rápido, simples e com saques ilimitados. Lottu é conhecido por sua eficiência nos pagamentos.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde Jogar o Fortune Mouse</h2>
+          <p>Para jogar o <strong>Fortune Mouse</strong>, basta acessar o site do <strong>Lottu</strong> e seguir os
+            passos:</p>
+          <ol>
+            <li>Cadastre-se no site (em menos de 2 minutos).</li>
+            <li>Acesse a seção "Cassino".</li>
+            <li>Procure por Fortune Mouse na barra de busca.</li>
+            <li>Defina sua aposta e comece a girar!</li>
+          </ol>
+          <div class="botao"><a class="register" title="jogue Fortune Mouse" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Lottu é Confiável?</h2>
+          <p>O <strong>Lottu</strong> é uma plataforma licenciada, segura e com suporte 24h. Milhares de jogadores
+            confiam e recomendam.</p><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png"
+            alt="Lottu reclame aqui" title="Suporte e reputação do Lottu" />
+          <p>O suporte funciona todos os dias, com atendimento rápido e sem taxas escondidas. Jogue com segurança e
+            responsabilidade.</p>
+          <div class="botao"><a class="register" title="jogue Fortune Mouse" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>Cadastre-se
+              e aproveite os benefícios</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Fortune Mouse FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

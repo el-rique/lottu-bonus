@@ -1,0 +1,188 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como começar a jogar Gates of Olympus?", answer: "Crie uma conta no Lottu, acesse a seção Cassino, pesquise por Gates of Olympus e clique no jogo para iniciar; ajuste a aposta e gire as bobinas." },
+  { question: "Como ganhar no Velho do Raio (Gates of Olympus)?", answer: "Combine pelo menos 8 símbolos conectados (não precisa estar alinhados) para formar vitórias; multiplicadores nas gemas aumentam os pagamentos." },
+  { question: "Quais são os símbolos especiais do Gates of Olympus?", answer: "Scatter é a face de Zeus (4+ ativa rodadas grátis) e existem multiplicadores aleatórios (gemas aladas) que vão de 2x até valores altos, acumulando durante as quedas." },
+  { question: "Qual é a base dos pagamentos mostrados na tabela?", answer: "Os valores da tabela são exemplos com base em aposta de R$1; pagamentos reais variam conforme o valor apostado e multiplicadores aplicados." },
+  { question: "Posso jogar Gates of Olympus em dispositivos móveis?", answer: "Sim. O jogo é compatível com celulares e tablets e foi otimizado para funcionar em diferentes tamanhos de tela." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/gates.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Gates-of-Olympus.jpg", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Gates of Olympus | Velho do Raio - Jogue no Lottu Cassino"
+  description="Jogue Gates of Olympus no Lottu: conecte símbolos, ative multiplicadores e aproveite rodadas grátis. Veja pagamentos, símbolos e como jogar."
+  keywords="gates of olympus, velho do raio, gates lottu, pragmatic play"
+  canonical="https://lottu-bonus.com/jogos/slots/gates-of-olympus"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1><strong>Gates of Olympus</strong> é no Lottu Cassino: Multiplique seus Ganhos</h1>
+          <p>O <strong>Gates of Olympus</strong>, mais conhecido como velho do raio, é um dos slots mais populares no
+            universo dos jogos online.</p>
+          <div><img src="/assets/media/gates.avif" alt="Gates of Olympus slot Zeus cassino"
+              title="Apostar Gates of Olympus no Lottu" /></div>
+          <p>Portanto, se você busca diversão e grandes prêmios, o Lottu Cassino é o lugar certo para jogar.</p><br />
+        </div>
+        <div class="botao"><a target="_blank" rel="noopener noreferrer" class="register" title="jogue Gates of Olympus"
+            href={AFFILIATE}>Cadastre-se
+            e jogue!</a></div>
+      </div>
+    </section>
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <h2>Como Ganhar no Velho do Raio</h2>
+        <p>Para ganhar no Velho do Raio, você precisa combinar pelo menos 8 símbolos para conectar, independente de
+          estarem alinhados ou juntos.</p>
+        <h3>Quais são os Símbolos do Gates of Olympus?</h3>
+        <p><strong>Quanto os Símbolos Pagam no Gates of Olympus?</strong></p>
+        <table class="payment-table">
+          <thead>
+            <tr>
+              <th>Símbolo</th>
+              <th>8-9 Símbolos</th>
+              <th>10-11 Símbolos</th>
+              <th>12-30 Símbolos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gema Azul</td>
+              <td>R$0,25</td>
+              <td>R$0,75</td>
+              <td>R$2,00</td>
+            </tr>
+            <tr>
+              <td>Gema verde</td>
+              <td>R$0,40</td>
+              <td>R$0,90</td>
+              <td>R$4,00</td>
+            </tr>
+            <tr>
+              <td>Gema Amarela</td>
+              <td>R$0,50</td>
+              <td>R$1,00</td>
+              <td>R$5,00</td>
+            </tr>
+            <tr>
+              <td>Gema Roxa</td>
+              <td>R$0,80</td>
+              <td>R$1,20</td>
+              <td>R$8,00</td>
+            </tr>
+            <tr>
+              <td>Gema Vermelha</td>
+              <td>R$1,00</td>
+              <td>R$1,50</td>
+              <td>R$10,00</td>
+            </tr>
+            <tr>
+              <td>Copa Azul</td>
+              <td>R$1,50</td>
+              <td>R$2,00</td>
+              <td>R$12,00</td>
+            </tr>
+            <tr>
+              <td>Anel Vermelho</td>
+              <td>R$2,00</td>
+              <td>R$5,00</td>
+              <td>R$15,00</td>
+            </tr>
+            <tr>
+              <td>Ampulheta Verde</td>
+              <td>R$2,50</td>
+              <td>R$10,00</td>
+              <td>R$25,00</td>
+            </tr>
+            <tr>
+              <td>Coroa Vermelha</td>
+              <td>R$10,00</td>
+              <td>R$25,00</td>
+              <td>R$50,00</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="description-1real"><strong>Pagamentos com Base em Aposta de R$1</strong></p>
+        <h3>Símbolos Especiais</h3>
+        <ul>
+          <li><strong>Scatter:</strong> Face de Zeus com o texto Scatter. 4 ou mais ativam Rodadas Grátis.</li>
+          <li><strong>Multiplicadores:</strong> Gemas aladas de 2x a 500x.</li>
+        </ul>
+        <div class="botao"><a target="_blank" rel="noopener noreferrer" class="register" title="jogue Gates of Olympus"
+            href={AFFILIATE}>Cadastre-se
+            e aproveite os benefícios</a></div>
+        <h3>Recursos do Jogo</h3>
+        <p>Recurso de Queda e Rodadas Grátis acumulam multiplicadores progressivos.</p>
+        <div class="how-to-play-information">
+          <div><img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Gates-of-Olympus.jpg"
+              alt="Como jogar Gates of Olympus tutorial completo Zeus"
+              title="Tutorial Gates of Olympus - Aprenda a Jogar" /></div>
+          <div class="botao"><a target="_blank" rel="noopener noreferrer" class="register"
+              title="jogue Gates of Olympus"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <h2>Como Sacar Seus Ganhos</h2>
+        <ol>
+          <li>Abra as configurações no canto superior direito.</li>
+          <li>Selecione Sacar e escolha o método.</li>
+          <li>Informe o valor e sua chave Pix.</li>
+        </ol>
+      </div>
+    </section>
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <h2>Onde Jogar Gates Of Olympus</h2>
+        <ol>
+          <li>Cadastre-se no site.</li>
+          <li>Acesse a seção Cassino.</li>
+          <li>Pesquise Gates of Olympus e comece.</li>
+        </ol>
+        <div class="botao"><a target="_blank" rel="noopener noreferrer" class="register"
+            href={AFFILIATE}>Cadastre-se
+            e jogue!</a></div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Gates of Olympus FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

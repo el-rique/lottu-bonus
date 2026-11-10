@@ -1,0 +1,183 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Fortune Ox?", answer: "Crie uma conta no Lottu, acesse a seção Cassino, procure por Fortune Ox na barra de busca e selecione a mesa para começar a girar." },
+  { question: "Posso jogar Fortune Ox em dispositivos móveis?", answer: "Sim. Fortune Ox é compatível com celulares, tablets e computadores; a interface é otimizada para telas menores." },
+  { question: "Qual é o valor mínimo de aposta e o prêmio máximo?", answer: "O valor mínimo costuma ser R$0,50 e o prêmio máximo pode atingir até 2.000x o valor da aposta, dependendo dos recursos ativados." },
+  { question: "Quais são os símbolos especiais do jogo?", answer: "O principal símbolo especial é o Wild (o touro), que substitui outros símbolos para ajudar a formar combinações vencedoras." },
+  { question: "Como funcionam os recursos Touro da Sorte e o multiplicador 10x?", answer: "Touro da Sorte pode parar as bobinas laterais com o mesmo símbolo enquanto a do meio gira até formar combinação vencedora; o multiplicador 10x pode multiplicar ganhos quando a grade é preenchida com o mesmo símbolo." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Esporte-da-Sorte-Fortune-Ox-slot.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Fortune-ox-jogo-do-touro.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Fortune Ox | Jogo do Touro - Lottu Cassino"
+  description="Jogue Fortune Ox no Lottu Cassino: símbolos especiais, recursos do Touro da Sorte e ganhos de até 2.000x. Aprenda como jogar e aumente suas chances."
+  keywords="fortune ox, jogo do touro, fortune ox lottu, slot"
+  canonical="https://lottu-bonus.com/jogos/slots/fortune-ox"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogue <strong>Fortune Ox</strong> e Multiplique seus Ganhos</h1>
+          <p>O <strong>Fortune Ox</strong>, o jogo do touro, é um dos slots mais populares no universo dos jogos online
+            e o Lottu é o lugar certo para jogar.</p><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/Esporte-da-Sorte-Fortune-Ox-slot.jpg"
+            alt="Lottu - fortune-ox" title="Fortune Ox - Jogue no Lottu" />
+        </div>
+        <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Ox"
+            href={AFFILIATE}>JOGUE
+            E TENHA CHANCES DE GANHAR!</a></div>
+      </div>
+    </section>
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar no Jogo do Fortune Ox</h2>
+          <p>Imagine uma máquina caça-níquel 🎰 que aumenta suas chances de ganhar prêmios incríveis.<br />Esse é o
+            <strong>Fortune Ox!</strong><br />Para jogar, use os botões - e + para ajustar a aposta e clique no botão de
+            girar. Combine 3 símbolos iguais nas linhas válidas para ganhar.</p>
+          <ol>
+            <li>Use os botões - e + para ajustar o valor da aposta.</li>
+            <li>Clique no botão verde para começar a rodada.</li>
+            <li>Torça para combinar 3 símbolos iguais nas linhas de pagamento.</li>
+          </ol>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Ox"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+          <p>Valor mínimo de aposta comum: R$ 0,50. Prêmio máximo pode chegar a 2.000x dependendo dos recursos ativados.
+            Jogue com responsabilidade.</p>
+        </div>
+      </div>
+    </section>
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como Ganhar no Jogo do Fortune Ox</h2>
+          <p>Para ganhar no <strong>Fortune Ox</strong>, combine 3 símbolos iguais em uma das linhas de pagamento. O
+            jogo inclui recursos que aumentam suas chances, como Touro da Sorte e multiplicadores.</p><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/Fortune-ox-jogo-do-touro.jpg"
+            alt="Como Jogar no Jogo do Fortune Ox" title="Fortune Ox - Dicas e recursos" />
+          <p>A jogabilidade é simples: gire as bobinas e aguarde os resultados. Recursos especiais podem ativar giros
+            adicionais ou multiplicadores para maximizar ganhos.</p>
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Símbolo</th>
+                <th>Pagamento (exemplo)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Foguete</td>
+                <td>R$0,12</td>
+              </tr>
+              <tr>
+                <td>Tangerina</td>
+                <td>R$0,20</td>
+              </tr>
+              <tr>
+                <td>Envelope</td>
+                <td>R$0,40</td>
+              </tr>
+              <tr>
+                <td>Saco de ouro</td>
+                <td>R$0,80</td>
+              </tr>
+              <tr>
+                <td>Caixa de Moedas</td>
+                <td>R$2,00</td>
+              </tr>
+              <tr>
+                <td>Lingote de Ouro</td>
+                <td>R$4,00</td>
+              </tr>
+              <tr>
+                <td>O Touro (Wild)</td>
+                <td>R$8,00</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>JOGUE
+              E TENHA CHANCES DE GANHAR!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do Fortune Ox</h2>
+          <p>O processo de saque no Lottu é simples: acesse seu perfil, vá até Saque, escolha o método (PIX,
+            transferência etc.), informe o valor mínimo (ex.: R$10) e confirme.</p>
+          <p>Os prazos e limites podem variar conforme o método escolhido.</p>
+        </div>
+      </div>
+    </section>
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde Jogar o Jogo do Fortune Ox</h2>
+          <ol>
+            <li>Cadastre-se no site do Lottu (menos de 2 minutos).</li>
+            <li>Acesse a seção Cassino.</li>
+            <li>Busque por Fortune Ox e comece a girar.</li>
+          </ol>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Lottu é Confiável?</h2>
+          <p>O <strong>Lottu</strong> oferece suporte 24/7 e políticas claras. Jogue com responsabilidade e verifique os
+            termos antes de apostar.</p><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png"
+            alt="Lottu reclame aqui" title="Reputação e suporte Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer"
+              href={AFFILIATE}>Cadastre-se
+              e aproveite os benefícios</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Fortune Ox FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

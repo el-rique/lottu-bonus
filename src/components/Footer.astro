@@ -1,0 +1,92 @@
+---
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <h3>Jogos</h3>
+      <ul>
+        <li><a title="fortune tiger" href="/fortune-tiger">Tigrinho</a></li>
+        <li><a title="fortune mouse" href="/fortune-mouse">Fortune Mouse</a></li>
+        <li><a title="fortune rabbit" href="/fortune-rabbit">Fortune Rabbit</a></li>
+        <li><a title="fortune ox" href="/fortune-ox">Fortune Ox</a></li>
+        <li><a title="bac bo" href="/bac-bo">Bac Bo</a></li>
+        <li><a title="aviator" href="/aviator">Aviator</a></li>
+        <li><a title="spaceman" href="/spaceman">Spaceman</a></li>
+        <li><a title="gates of olympus" href="/gates-of-olympus">Gates of Olympus</a></li>
+        <li><a title="vira-lata sortudo" href="/vira-lata-caramelo">Vira-lata Sortudo</a></li>
+        <li><a title="sweet bonanza" href="/sweet-bonanza">Sweet Bonanza</a></li>
+        <li><a title="blackjack" href="/blackjack">Blackjack</a></li>
+        <li><a title="futebol" href="/futebol">Futebol</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h3>Lottu Bet</h3>
+      <ul>
+        <li><a target="_blank" rel="noopener noreferrer" title="afiliados" href="https://grupoegbpartners.com/">Afiliados</a></li>
+        <li><a title="promoções" href="/#videos">Promoções</a></li>
+        <li><a title="bônus" href="/#videos">Bônus</a></li>
+        <li><a target="_blank" rel="noopener noreferrer sponsored" title="login" href={AFFILIATE}>Login</a></li>
+        <li><a target="_blank" rel="noopener noreferrer sponsored" title="cadastro" href={AFFILIATE}>Cadastro</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h3>Links</h3>
+      <ul>
+        <li><a target="_blank" rel="noopener noreferrer" title="esportes da sorte" href="https://esportesdasorte.bet.br/">Esportes da Sorte</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h3>Sobre Nós</h3>
+      <p>
+        A Lottu Bet é um site da rede de fandom do cassino online Lottu. Em
+        parceria com a lottu-bonus.com e Esportes da Sorte, fomos feitos
+        para divulgar promoções e novidades do cassino online Lottu.
+        <br /><br />Aqui você encontrará desde guias para iniciantes, a
+        estratégias e informações sobre as promoções da Lottu.
+      </p>
+    </div>
+  </div>
+  <p class="copyright">
+    ₢<span id="current-year"></span> lottu-bonus — todos os direitos reservados
+  </p>
+</footer>
+
+<script>
+  document.getElementById("current-year")!.textContent = new Date().getFullYear().toString();
+</script>
+
+<style>
+  footer {
+    background-color: var(--color-dark);
+    padding-bottom: var(--spacing-sm);
+  }
+
+  footer .container {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .footer-links { width: 100%; }
+  .footer-links h3 { margin-bottom: var(--spacing-xs); }
+  .footer-links ul { list-style: none; padding: 0 2px; }
+  .footer-links a, .footer-links p, .footer-links ul { font-size: var(--font-sm); }
+  .footer-links a { text-decoration: none; color: var(--color-accent); }
+  .footer-links a:hover { color: var(--color-primary); }
+  .footer-links ul li { padding: 2px 0; }
+
+  .copyright {
+    padding-block: var(--spacing-sm);
+    font-size: var(--font-xs) !important;
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    footer .container { text-align: start; flex-direction: column; }
+  }
+
+  @media (max-width: 768px) {
+    footer { padding-bottom: 70px; }
+  }
+</style>

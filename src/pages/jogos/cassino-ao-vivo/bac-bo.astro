@@ -1,0 +1,148 @@
+﻿---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import FAQ from '../../../components/FAQ.astro';
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a Bac Bo?", answer: "Para começar a jogar Bac Bo, basta criar uma conta e acessar o jogo no menu principal." },
+  { question: "Posso jogar Bac Bo em dispositivos móveis?", answer: "Sim, o Bac Bo é compatível com dispositivos móveis, permitindo que você jogue em qualquer lugar." },
+  { question: "Há um limite de tempo para fazer o saque?", answer: "Não há limite de tempo específico para saques, mas recomendamos verificar os termos do jogo." },
+  { question: "Qual é o melhor horário para jogar Bac Bo?", answer: "O melhor horário é aquele em que você se sinta mais confortável e focado para jogar." },
+  { question: "Existe alguma estratégia para jogar Bac Bo?", answer: "Estabelecer um orçamento e planejar suas apostas são boas práticas para melhorar sua experiência no jogo." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/bac-bo.webp", as: "image" },
+  { href: "https://flaviosebastiao.com/blogs/jogos-eds-cassino/bac-bo/img/Bac-Bo-.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Bac-Bo-.jpg", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Bac Bo Bet | Jogo dos Dados - Lottu Cassino"
+  description="Jogue Bac Bo no Lottu Cassino: apostas rápidas com dados, regras simples e pagamentos altos. Aprenda como jogar, estratégias e cadastre-se para começar."
+  keywords="bac bo, jogo dos dados, bac bo lottu, cassino ao vivo"
+  canonical="https://lottu-bonus.com/jogos/cassino-ao-vivo/bac-bo"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <section class="introduction-conteiner">
+    <div class="introduction-content">
+      <div class="introduction-description">
+        <h1>Jogo do <strong>Bac Bo</strong> é no <br />Lottu Cassino</h1>
+        <p>O <strong>Bac Bo </strong>é um jogo de cassino ao vivo que mistura o clássico Baccarat com dados.<br />Ao iniciar, você verá uma mesa com quatro espaços:<br />dois dados azuis representam a mão do jogador (Player) e dois dados vermelhos representam a mão da banca (Banker).</p>
+        <img src="/assets/media/bac-bo.webp" alt="Bac Bo dados baccarat cassino online" title="Apostar Bac Bo no Lottu - Jogo dados" />
+      </div>
+      <div class="botao">
+        <a target="_blank" rel="noopener noreferrer sponsored" class="register" title="jogue Bac Bo" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <h2>Como Jogar no Jogo do <strong>Bac Bo</strong></h2>
+      <p>Você pode apostar no jogador, na banca ou no empate (tie).<br />Um dealer ao vivo conduz o jogo, começando e finalizando as rodadas.<br />Para ganhar, a mão em que você apostou precisa ter um valor maior que a do adversário.<br />Se apostou em empate, ganha se os valores das duas mãos forem iguais, e o Lottu Cassino é o lugar certo para jogar.</p>
+      <p>No Bac Bo, você pode fazer três tipos de apostas:</p>
+      <ul>
+        <li>Player (Jogador)</li>
+        <li>Banker (Banca)</li>
+        <li>Tie (Empate)</li>
+      </ul>
+      <p>Na hora de apostar, o jogo mostra as estatísticas de como os outros jogadores apostaram nas opções Player, Banker ou Tie naquela rodada, além dos pagamentos para cada resultado.<br />As fichas de aposta variam de R$5 a R$2.500, e a aposta mínima por rodada é de R$5, enquanto a máxima pode chegar a R$25.000.<br />Também há opções para desfazer a aposta ou dobrá-la.</p>
+      <div class="how-to-play-information">
+        <img src="https://flaviosebastiao.com/blogs/jogos-eds-cassino/bac-bo/img/Bac-Bo-.jpg" alt="Tutorial Bac Bo como apostar dados" title="Aprenda a jogar Bac Bo no Lottu" class="img-horizontal" />
+      </div>
+      <h4>Apostas em Player e Banker</h4>
+      <p>As apostas mais comuns são em Player e Banker.<br />Basta escolher o valor da ficha e clicar na mão que você acha que vai vencer.<br />O pagamento para essas apostas é de 1:1, ou seja, você ganha o mesmo valor apostado.</p>
+      <h4>Aposta em Tie (Empate)</h4>
+      <p>Apostar no empate é mais arriscado, mas oferece prêmios maiores.<br />Por exemplo, se os dois dados do jogador e da banca tiverem o mesmo resultado, como 2 pontos, o pagamento é de 88x o valor da aposta.<br />Apostar em empate significa que você cobre todas as possíveis combinações de empate.</p>
+      <h4>Pagamentos de Bac Bo</h4>
+      <p>Abaixo está uma tabela com os pagamentos para cada tipo de aposta:</p>
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>Aposta</th>
+            <th>Pagamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Player</td><td>1:1</td></tr>
+          <tr><td>Banker</td><td>1:1</td></tr>
+          <tr><td>Tie</td><td>88:1 - Resultado de empate é 2 ou 12</td></tr>
+          <tr><td></td><td>51:1 - Resultado de empate é 3 ou 12</td></tr>
+          <tr><td></td><td>41:1 - Resultado de empate é 4 ou 10</td></tr>
+          <tr><td></td><td>26:1 - Resultado de empate é 5 ou 9</td></tr>
+          <tr><td></td><td>11:1 - Resultado de empate é 6 ou 8</td></tr>
+          <tr><td></td><td>5:1 - Resultado de empate é 7</td></tr>
+        </tbody>
+      </table>
+      <div class="how-to-play-information">
+        <a target="_blank" rel="noopener noreferrer sponsored" class="register" title="jogue Bac Bo" href={AFFILIATE}>Cadastre-se e jogue!</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="winning-tips-conteiner">
+    <div class="winning-tips-content">
+      <div class="winning-tips-description">
+        <h2>Como Sacar Seus Ganhos no Jogo do <strong>Bac Bo</strong></h2>
+        <p>Jogar <strong>Bac Bo</strong> não é apenas emocionante, mas também prático para sacar suas recompensas.<br />Concluindo, o processo de saque é simples:</p>
+        <ol>
+          <li>Pressione o ícone de configurações no canto superior direito da tela.</li>
+          <li>Selecione Sacar.</li>
+          <li>Escolha o método de pagamento.</li>
+          <li>Insira o valor do saque (mínimo de R$ 10) e sua chave Pix.</li>
+          <li>Finalize a transação.</li>
+        </ol>
+        <p>Portanto, você pode sacar seus ganhos de forma fácil, rápida e ilimitada!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>Onde Jogar o Jogo do <strong>Bac Bo</strong></h2>
+        <p>Para jogar o <strong>Bac Bo</strong>, basta acessar o site do <strong>Lottu Cassino</strong>. Depois disso, siga os passos abaixo:</p>
+        <ol>
+          <li>Cadastre-se no site (em menos de 2 minutos).</li>
+          <li>Acesse a seção Cassino ao vivo.</li>
+          <li>Encontre o jogo digitando Bac Bo na barra de busca.</li>
+        </ol>
+        <p>Agora é só começar a jogar e multiplicar seus ganhos!</p>
+        <div>
+          <div>
+            <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Bac-Bo-.jpg" alt="Estratégia ganhar Bac Bo cassino" title="Dicas para vencer no Bac Bo Lottu" class="img-horizontal" />
+          </div>
+          <div class="botao">
+            <a target="_blank" rel="noopener noreferrer sponsored" class="register" title="jogue Bac Bo" href={AFFILIATE}>Cadastre-se e jogue!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-conteiner">
+      <h2>Bac Bo FAQ</h2>
+      <script type="application/ld+json" set:html={faqStructuredData} />
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>
+

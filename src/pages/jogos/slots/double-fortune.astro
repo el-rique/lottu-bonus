@@ -1,0 +1,179 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  {
+    question: "Como posso começar a jogar Double Fortune?",
+    answer: "Basta criar uma conta no Lottu, acessar o jogo Double Fortune e escolher o valor da aposta; os rolos girarão automaticamente.",
+  },
+  {
+    question: "Posso jogar Double Fortune em dispositivos móveis?",
+    answer: "Sim. Double Fortune é compatível com celulares, tablets e computadores e a interface é otimizada para telas menores.",
+  },
+  {
+    question: "Como funcionam os símbolos duplos no Double Fortune?",
+    answer: "Os símbolos duplos contam como dois ícones iguais, aumentando a chance de formar combinações de alto valor durante os giros.",
+  },
+  {
+    question: "Como ativar os giros grátis?",
+    answer: "Consiga 3 ou mais símbolos Scatter (a letra dourada Double) para ativar os giros grátis; durante o bônus os multiplicadores podem se acumular.",
+  },
+  {
+    question: "Posso jogar Double Fortune grátis?",
+    answer: "Sim. O Lottu oferece modo demo onde você testa o jogo sem arriscar saldo real para entender símbolos e bônus.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-capa-jogo-esportes-da-sorte.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-inicial-slot.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-ganho.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-mega-ganho.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Double Fortune | Slot de Símbolos Duplos - Lottu Cassino"
+  description="Jogue Double Fortune no Lottu Cassino: símbolos duplos, giros grátis e multiplicadores acumulados. Veja como funciona, teste a demo e aumente suas chances."
+  keywords="double fortune, slot online, double fortune lottu, símbolos duplos"
+  canonical="https://lottu-bonus.com/jogos/slots/double-fortune"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+  <script type="application/ld+json" set:html={faqStructuredData} />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Double Fortune no Lottu: DOBRE SUA CHANCE A CADA GIRO</h1>
+          <p>Inspirado nos casamentos tradicionais chineses, Double Fortune traz sorte, harmonia e prêmios em dobro. No Lottu você tem:</p>
+          <ul>
+            <li>🧧 Símbolos que valem por dois</li>
+            <li>🎁 Giros grátis com multiplicadores acumulados</li>
+            <li>💥 Combinações com até 1.000x por rodada</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-capa-jogo-esportes-da-sorte.webp" alt="Slot Double Fortune com símbolo duplo e giro bônus ativado no Lottu" title="Rodada bônus com multiplicador no Double Fortune no Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>ENTRE NA FORTUNA E GIRE COM ELEGÂNCIA</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar Double Fortune</h2>
+          <ol>
+            <li>Selecione o valor da sua aposta (mínimo de R$0,10)</li>
+            <li>Gire os rolos e busque símbolos duplos</li>
+            <li>Ative os giros grátis com 3 Scatters</li>
+            <li>Durante os bônus, os ganhos são multiplicados</li>
+            <li>Combine os pares certos e dobre suas recompensas</li>
+          </ol>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-inicial-slot.webp" alt="Slot Double Fortune com símbolo duplo e giro bônus ativado no Lottu" title="Rodada bônus com multiplicador no Double Fortune no Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="JOGUE na Lottu E VIVA A SORTE EM DOBRO" href={AFFILIATE}>JOGUE na Lottu E VIVA A SORTE EM DOBRO</a></div>
+          <p class="responsible-gaming">Jogue com moderação. Diversão responsável faz parte do jogo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Os Símbolos do Double Fortune</h2>
+          <ul class="symbol-list">
+            <h3>👫 Símbolos Duplos (Casal de noivos)</h3>
+            <li>Cada símbolo conta como dois ícones iguais</li>
+            <li>Facilita combinações com alto valor</li>
+            <h3>🔴 Scatter (Letra Dourada Double)</h3>
+            <li>3 ou mais ativam giros grátis</li>
+            <li>Durante o bônus, ganhos são dobrados</li>
+            <h3>🧩 Wild (Símbolo da Palavra Wild)</h3>
+            <li>Substitui símbolos comuns</li>
+            <li>Pode surgir em série nas fases bônus</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-ganho.webp" alt="Slot Double Fortune com símbolo duplo e giro bônus ativado no Lottu" title="Rodada bônus com multiplicador no Double Fortune no Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Double Fortune" href={AFFILIATE}>ENTENDA OS SÍMBOLOS E DOBRE SUAS CHANCES NO Lottu</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos do Double Fortune</h2>
+          <p>🎯 Lucrou? Veja como sacar com rapidez:</p>
+          <ol>
+            <li>Entre no seu perfil no Lottu</li>
+            <li>Acesse Saque</li>
+            <li>Escolha o método (PIX, entre outros)</li>
+            <li>Digite o valor (mínimo R$10)</li>
+            <li>Confirme e receba em minutos</li>
+          </ol>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-mega-ganho.webp" alt="Slot Double Fortune com símbolo duplo e giro bônus ativado no Lottu" title="Rodada bônus com multiplicador no Double Fortune no Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="GANHE E SAQUE COM HONRA E VELOCIDADE" href={AFFILIATE}>GANHE E SAQUE COM HONRA E VELOCIDADE</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="free-to-play-conteiner">
+      <div class="free-to-play-content">
+        <div class="free-to-play-description">
+          <h2>Jogue Double Fortune Grátis no Lottu</h2>
+          <p>Quer experimentar o jogo antes de decidir apostar?</p>
+          <ul>
+            <li>🔍 Explore os símbolos duplos e suas funções</li>
+            <li>🎯 Veja como os giros bônus reagem</li>
+            <li>🧠 Treine sua leitura de combinação sem gastar</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/double-fortune-tela-inicial-slot.webp" alt="Slot Double Fortune com símbolo duplo e giro bônus ativado no Lottu" title="Rodada bônus com multiplicador no Double Fortune no Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="ACESSE A DEMO GRATUITA E TESTE SUA HARMONIA COM O JOGO" href={AFFILIATE}>ACESSE A DEMO GRATUITA E TESTE SUA HARMONIA COM O JOGO</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>O Lottu é Confiável?</h2>
+          <ul>
+            <li>✅ Suporte todos os dias, 24h por dia</li>
+            <li>✅ Licenciado, seguro e criptografado</li>
+            <li>✅ Saques rápidos, simples e sem taxa oculta</li>
+            <li>✅ Milhares de jogadores ativos e satisfeitos</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="Lottu reclame aqui" />
+          <p>Jogue com moderação. Diversão responsável faz parte do jogo.</p>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="CADASTRE-SE NO Lottu E JOGUE COM CONFIANÇA" href={AFFILIATE}>CADASTRE-SE NO Lottu E JOGUE COM CONFIANÇA</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Double Fortune FAQ</h2>
+        <FAQ items={faqItems} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

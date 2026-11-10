@@ -1,0 +1,139 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Fortune Tiger?", answer: "Crie uma conta no Lottu, acesse a seção Cassino, procure por Fortune Tiger na barra de busca e selecione o jogo; ajuste a aposta e gire as bobinas." },
+  { question: "Posso jogar Fortune Tiger em dispositivos móveis?", answer: "Sim. Fortune Tiger é compatível com celulares, tablets e computadores, com interface otimizada para telas menores." },
+  { question: "Qual é o valor mínimo de aposta e o prêmio máximo?", answer: "O valor mínimo costuma ser R$0,40 e o prêmio máximo pode chegar a até 2.500x o valor da aposta dependendo dos recursos ativados." },
+  { question: "Quais são os símbolos especiais do jogo?", answer: "O Tigre Wild substitui outros símbolos para ajudar a formar combinações vencedoras e existem símbolos de diferentes valores que determinam os prêmios." },
+  { question: "Como funcionam os recursos Tigre da Sorte e multiplicador x10?", answer: "Recursos como Tigre da Sorte podem ser ativados aleatoriamente para alinhar símbolos; o multiplicador x10 aumenta ganhos quando a grade é preenchida com o mesmo símbolo." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/tiger.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-tiger-ganho.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Fortune Tiger | Jogo do Tigrinho - Lottu Cassino"
+  description="Jogue Fortune Tiger no Lottu Cassino: símbolos especiais, recursos do Tigre da Sorte e ganhos de até 2.500x. Veja como jogar e aumente suas chances."
+  keywords="fortune tiger, jogo do tigrinho, fortune tiger lottu, slot"
+  canonical="https://lottu-bonus.com/jogos/slots/fortune-tiger"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogo do Tigrinho: Jogue Fortune Tiger e Multiplique seus Ganhos</h1>
+          <p>O <strong>Fortune Tiger</strong>, mais conhecido como jogo do tigrinho, é um dos slots mais populares no universo dos jogos online.</p>
+          <div><img src="/assets/media/tiger.avif" alt="Fortune Tiger slot tigre cassino Lottu" title="Jogar Fortune Tiger - Slot do tigre da sorte" /></div>
+          <p>Portanto, se você busca diversão e grandes prêmios, o Lottu Cassino é o lugar certo para jogar.</p><br />
+        </div>
+        <div class="botao"><a class="register" title="jogue fortune Tiger" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Jogue agora e multiplique seus ganhos!</a></div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar no Jogo do tigrinho</h2>
+          <p>Imagine uma máquina caça-níquel 🎰 que aumenta suas chances de ganhar prêmios incríveis. Esse é o jogo do tigrinho!<br />Para jogar, use os botões - e + para ajustar a aposta e clique no botão de girar. Combine 3 símbolos iguais nas linhas de pagamento para vencer.</p>
+          <ol>
+            <li>Use os botões - e + para ajustar o valor da aposta.</li>
+            <li>Clique no botão verde para começar a rodada.</li>
+            <li>Torça para combinar 3 símbolos iguais!</li>
+          </ol>
+          <p>Valor mínimo de aposta comum: R$ 0,40. Prêmio máximo pode chegar a 2.500x dependendo dos recursos ativados. Jogue com responsabilidade.</p>
+          <div class="how-to-play-information">
+            <div class="botao"><a class="register" target="_blank" title="jogue fortune Tiger" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se agora e jogue!</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como Ganhar no Jogo do tigrinho</h2>
+          <p>Para ganhar no <strong>jogo do tigrinho</strong>, combine 3 símbolos iguais em uma das linhas de pagamento. O jogo inclui recursos especiais e multiplicadores que aumentam suas chances.</p>
+          <h3>Quais são os Símbolos do Fortune Tiger?</h3>
+          <ul>
+            <li><strong>Símbolos de Pagamento Alto:</strong> Tigre Wild (paga 250x a aposta).</li>
+            <li><strong>Símbolos de Pagamento Médio:</strong> Tesouro de ouro (paga 100x a aposta).</li>
+            <li><strong>Símbolos de Pagamento Baixo:</strong> Enfeite verde (25x), saco de moedas (10x), envelope (8x), enfeite azul (5x), tangerina (1x).</li>
+          </ul>
+          <p>O <strong>Tigre Wild</strong> substitui outros símbolos para formar combinações vencedoras. Recursos como Tigre da Sorte e o multiplicador x10 podem ser acionados aleatoriamente para aumentar os ganhos.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-tiger-ganho.jpg" alt="Símbolos multiplicador Fortune Tiger" title="Ganhos com multiplicador x10 Fortune Tiger" />
+          <div class="botao"><a class="register" target="_blank" title="jogue fortune Tiger" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e aumente suas chances agora mesmo!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do Tigrinho</h2>
+          <p>O processo de saque no Lottu é simples: acesse seu perfil, vá até Saque, escolha o método (PIX, transferência etc.), informe o valor mínimo (ex.: R$10) e confirme.</p>
+          <p>Os prazos e limites podem variar conforme o método escolhido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde Jogar o Jogo do tigrinho</h2>
+          <ol>
+            <li>Cadastre-se no site do Lottu (menos de 2 minutos).</li>
+            <li>Acesse a seção Cassino.</li>
+            <li>Busque por Fortune Tiger e comece a girar.</li>
+          </ol>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-tiger-ganho.jpg" alt="Mega ganho Fortune Tiger vitória" title="Exemplo de grande vitória no Fortune Tiger" />
+          <div class="botao"><a class="register" title="jogue fortune Tiger" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue agora mesmo!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Lottu é Confiável?</h2>
+          <p>O <strong>Lottu</strong> valoriza seus usuários, oferece suporte 24/7 e mantém políticas claras. Jogue com responsabilidade.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="Lottu reclame aqui" title="Reputação e suporte Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e aproveite os benefícios</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Fortune Tiger FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

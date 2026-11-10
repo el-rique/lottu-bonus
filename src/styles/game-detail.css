@@ -1,0 +1,314 @@
+/* === Game Detail Pages === */
+:root {
+  --detail-section-gap: 32px;
+  --detail-block-gap: 18px;
+  --detail-copy-gap: 12px;
+  --detail-content-max: 1200px;
+  --detail-text-max: 760px;
+  --detail-media-max: 380px;
+  --detail-wide-media-max: 600px;
+  --detail-radius: 12px;
+}
+
+#content-area {
+  margin-top: 80px;
+}
+
+:is(
+  .introduction-content img,
+  .how-to-play-content img,
+  .where-to-play-content img,
+  .winning-tips-content img,
+  .withdrawal-content img,
+  .free-to-play-content img,
+  .trustworthiness-content img
+) {
+  display: block;
+  width: 100%;
+  max-width: var(--detail-media-max);
+  height: auto;
+  margin: 24px auto;
+  object-fit: cover;
+  border-radius: var(--detail-radius);
+}
+
+.img-horizontal {
+  width: 100%;
+  max-width: var(--detail-wide-media-max);
+  margin: 24px auto;
+  object-fit: contain;
+  border-radius: var(--detail-radius);
+}
+
+.img-vertical {
+  width: min(100%, 320px) !important;
+  max-width: 320px !important;
+  margin: 24px auto !important;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.register {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #eeb70f;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #141414;
+  text-decoration: none;
+  margin: 1rem auto;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(174, 174, 174, 0.2);
+  transition: all 0.3s ease;
+  border: 2px inset #ffe4a5;
+}
+
+.register:hover {
+  background-color: #ffb300;
+  box-shadow: 0 6px 12px rgba(174, 174, 174, 0.2);
+  transform: scale(1.01) translateY(-2px);
+  border: 2px inset transparent;
+}
+
+:is(
+  .introduction-conteiner,
+  .how-to-play-conteiner,
+  .where-to-play-conteiner,
+  .winning-tips-conteiner,
+  .withdrawal-conteiner,
+  .free-to-play-conteiner,
+  .trustworthiness-conteiner,
+  .faq
+) {
+  margin: 0 20px var(--detail-section-gap);
+}
+
+.introduction-conteiner {
+  border-radius: 20px 20px 0 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+:is(
+  .introduction-content,
+  .how-to-play-content,
+  .where-to-play-content,
+  .winning-tips-content,
+  .withdrawal-content,
+  .free-to-play-content,
+  .trustworthiness-content,
+  .faq-conteiner
+) {
+  max-width: var(--detail-content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--detail-block-gap);
+}
+
+:is(
+  .introduction-description,
+  .how-to-play-description,
+  .where-to-play-description,
+  .winning-tips-description,
+  .withdrawal-description,
+  .free-to-play-description,
+  .trustworthiness-description,
+  .how-to-play-information,
+  .faq-content,
+  .botao
+) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--detail-copy-gap);
+}
+
+:is(
+  .introduction-content h1,
+  .introduction-content h2,
+  .introduction-content h3,
+  .how-to-play-content h2,
+  .how-to-play-content h3,
+  .where-to-play-content h2,
+  .winning-tips-content h2,
+  .winning-tips-content h3,
+  .withdrawal-content h2,
+  .free-to-play-content h2,
+  .trustworthiness-content h2,
+  .faq-conteiner h2,
+  .introduction-content p,
+  .how-to-play-content p,
+  .where-to-play-content p,
+  .winning-tips-content p,
+  .withdrawal-content p,
+  .free-to-play-content p,
+  .trustworthiness-content p,
+  .faq-conteiner p
+) {
+  max-width: var(--detail-text-max);
+  margin: 0;
+}
+
+.where-to-play-content {
+  margin-top: 2rem;
+}
+
+
+:is(
+  .symbol-list,
+  .how-to-play-content ol,
+  .how-to-play-content ul,
+  .where-to-play-content ol,
+  .where-to-play-content ul,
+  .winning-tips-content ol,
+  .winning-tips-content ul,
+  .withdrawal-content ol,
+  .withdrawal-content ul,
+  .free-to-play-content ol,
+  .free-to-play-content ul
+) {
+  max-width: var(--detail-text-max);
+  padding-left: 0;
+  line-height: 1.5;
+  list-style-position: inside;
+  text-align: center;
+}
+
+.payment-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #ffffff;
+  max-width: 100%;
+  display: table;
+}
+
+.how-to-play-content {
+  overflow-x: auto;
+}
+.payment-table td,
+.payment-table th {
+  border: 1px solid #ddd;
+  text-align: center;
+  color: #fff;
+}
+.payment-table thead tr {
+  background-color: #232323;
+  font-weight: 700;
+}
+.payment-table tbody tr:nth-child(2n),
+.payment-table tbody tr:nth-child(odd) {
+  background-color: #2a2a2a;
+}
+.payment-table td,
+.payment-table th {
+  padding: 10px 15px;
+}
+
+.faq {
+  display: block;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content: space-around;
+}
+
+.faq-conteiner h2 {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.description-1real {
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+.responsible-gaming {
+  font-size: small;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --detail-section-gap: 24px;
+    --detail-block-gap: 16px;
+    --detail-media-max: 320px;
+    --detail-wide-media-max: 520px;
+  }
+
+  #content-area {
+    margin-top: 50px;
+    padding: 30px 15px;
+  }
+  .register {
+    max-width: 100%;
+  }
+  .introduction-conteiner {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .faq,
+  .free-to-play-conteiner,
+  .how-to-play-conteiner,
+  .introduction-conteiner,
+  .trustworthiness-conteiner,
+  .winning-tips-conteiner,
+  .withdrawal-conteiner,
+  .where-to-play-conteiner {
+    margin: 0 auto var(--detail-section-gap);
+    width: 100%;
+    display: block;
+  }
+
+  .introduction-content img {
+    width: min(88%, 520px);
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  .how-to-play-information img {
+    display: block;
+    width: min(90%, 520px);
+    height: auto;
+    margin: 20px auto;
+  }
+  .winning-tips-content img {
+    width: min(88%, 320px);
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  .payment-table {
+    width: 100%;
+    min-width: 640px;
+    font-size: 1rem;
+    max-width: none;
+  }
+  .payment-table td,
+  .payment-table th {
+    font-size: 0.95rem;
+    word-break: break-word;
+    padding: 6px 8px;
+  }
+  .free-to-play-content img {
+    width: 95%;
+    height: auto;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 25px;
+  }
+  .trustworthiness-content img {
+    width: 80%;
+    height: auto;
+    display: block;
+  }
+}

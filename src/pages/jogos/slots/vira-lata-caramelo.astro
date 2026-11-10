@@ -1,0 +1,186 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  {
+    question: "Como posso começar a jogar Vira-lata Caramelo?",
+    answer: "Crie uma conta no Lottu, faça login, acesse a seção Cassino, pesquise por Vira-lata Caramelo e clique no jogo; ajuste a aposta e inicie a rodada.",
+  },
+  {
+    question: "Posso jogar Vira-lata Caramelo em dispositivos móveis?",
+    answer: "Sim — o jogo é compatível com celulares, tablets e computadores; a interface é responsiva e otimizada para telas menores.",
+  },
+  {
+    question: "Como funcionam as Rodadas Grátis e o recurso Tumble?",
+    answer: "Rodadas Grátis são ativadas ao conseguir três ou mais scatters; o recurso Tumble faz os símbolos vencedores desaparecerem e novos caírem, permitindo ganhos consecutivos na mesma rodada.",
+  },
+  {
+    question: "O que são os símbolos multiplicadores e como eles funcionam?",
+    answer: "Símbolos multiplicadores aparecem aleatoriamente (patinhas de cachorro) com valores típicos de 2x a 500x; no final da rodada, os multiplicadores presentes são somados ao prêmio total.",
+  },
+  {
+    question: "Existe alguma estratégia recomendada para jogar?",
+    answer: "Gerencie seu saldo, defina limites de perda/ganho, prefira apostas responsáveis e use o modo demo para entender o comportamento do jogo antes de apostar com dinheiro real.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Esportes-da-sorte-vira-lata-caramelo-slot.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Vira-lata-Caramelo-tela-game.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Vira-lata-Caramelo.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Vira-lata Caramelo | Slot Brasileiro - Jogue no Lottu Cassino"
+  description="Jogue Vira-lata Caramelo no Lottu: slot brasileiro com Tumble, rodadas grátis e multiplicadores de até 500x. Aprenda como funciona e maximize seus ganhos."
+  keywords="vira lata caramelo, slot brasileiro, vira lata lottu, slot"
+  canonical="https://lottu-bonus.com/jogos/slots/vira-lata-caramelo"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+  <script type="application/ld+json" set:html={faqStructuredData} />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogue Vira-lata Caramelo e Multiplique seus Ganhos</h1>
+          <p>Vira-lata Caramelo é o slot da Pragmatic Play que celebra o Brasil com gráficos vibrantes e trilha de samba. Jogue no Lottu</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Esportes-da-sorte-vira-lata-caramelo-slot.jpg" alt="Esportes-da-sorte-vira-lata-caramelo-slot" title="Vira-lata Caramelo no Lottu" />
+          <p>O Vira-lata Caramelo é um jogo de slot da Pragmatic Play que celebra a cultura brasileira. Com gráficos vibrantes e trilha de samba, o slot cria uma atmosfera envolvente.</p><br />
+        </div>
+        <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Vira-lata Caramelo" href={AFFILIATE}>Jogue e multiplique seus ganhos!</a></div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como jogar no Vira-lata Caramelo</h2>
+          <p>Imagine uma máquina caça-níquel 🎰 que aumenta suas chances de ganhar prêmios incríveis. Use os botões - e + para ajustar a aposta e clique no botão verde para iniciar a rodada.</p>
+          <ol>
+            <li>Use os botões - e + para ajustar o valor da aposta.</li>
+            <li>Clique no botão verde para começar a rodada.</li>
+          </ol>
+          <p>Valor mínimo de aposta: R$0,20. Alguns recursos podem permitir ganhos de até 5.000x, mas jogue com responsabilidade.</p>
+        </div>
+        <div class="how-to-play-information">
+          <div><img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Vira-lata-Caramelo-tela-game.jpg" alt="Lottu - Vira-lata-caramelo-slot" title="Tela do Vira-lata Caramelo" /></div>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>CADASTRE-SE E AUMENTE SUAS CHANCES</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como Ganhar no Jogo do Vira-lata Caramelo</h2>
+          <p>O Vira-lata Caramelo traz vários recursos que aumentam as chances:</p>
+          <h5>Rodadas Grátis</h5>
+          <p>Ativadas com 3+ scatters; oferecem giros sem custo e melhorias nos multiplicadores e símbolos wild.</p>
+          <h5>Recurso Tumble (Tombar)</h5>
+          <p>Símbolos vencedores desaparecem e novos caem no lugar, permitindo ganhos em cadeia na mesma rodada.</p>
+          <h5>Símbolos Multiplicadores</h5>
+          <p>Patinhas aleatórias aparecem com multiplicadores (2x–500x) que se somam no término da rodada.</p>
+          <h5>Ante Bet</h5>
+          <p>Opções Ante Bet (20x/25x) aumentam as chances de giros grátis e melhoram a frequência de scatters; comprar giros grátis também é possível em determinados modos.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Vira-lata-Caramelo.jpg" alt="Lottu - vira-lata-caramelo-slot" title="Recursos Vira-lata Caramelo" />
+
+          <h3>Quais são os Símbolos do Vira-lata Caramelo?</h3>
+          <p>O jogo possui 11 símbolos (biscoitos coloridos, chinelos, bola de futebol, coxinha, motocicleta etc.) com pagamentos que variam conforme a quantidade de símbolos na grade.</p>
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Símbolo</th>
+                <th>8-9</th>
+                <th>10-11</th>
+                <th>12-30</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Biscoito Verde</td><td>R$0,25</td><td>R$0,75</td><td>R$2</td></tr>
+              <tr><td>Biscoito Azul</td><td>R$0,40</td><td>R$0,90</td><td>R$4</td></tr>
+              <tr><td>Biscoito Roxo</td><td>R$0,50</td><td>R$1</td><td>R$5</td></tr>
+              <tr><td>Biscoito Turquesa</td><td>R$0,80</td><td>R$1,20</td><td>R$8</td></tr>
+              <tr><td>Biscoito Vermelho</td><td>R$1</td><td>R$1,50</td><td>R$10</td></tr>
+              <tr><td>Chinelos</td><td>R$1,50</td><td>R$2</td><td>R$12</td></tr>
+              <tr><td>Bola de Futebol</td><td>R$2</td><td>R$5</td><td>R$15</td></tr>
+              <tr><td>Coxinha de Galinha</td><td>R$2,50</td><td>R$10</td><td>R$25</td></tr>
+              <tr><td>Motocicleta</td><td>R$10</td><td>R$35</td><td>R$50</td></tr>
+            </tbody>
+          </table>
+          <p class="description-1real">Pagamentos Baseados em Aposta de R$1</p>
+
+          <h3>Símbolos Especiais</h3>
+          <ul>
+            <li><strong>Scatter:</strong> Vira-Lata Caramelo — 4+ ativa Rodadas Grátis.</li>
+            <li><strong>Multiplicadores:</strong> Patinhas de cachorro (2x–500x) que somam no fim da rodada.</li>
+          </ul>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Vira-lata Caramelo" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do Vira-lata Caramelo</h2>
+          <p>O processo de saque é simples: abra as configurações, selecione Sacar, escolha o método, informe o valor (mínimo R$10) e confirme.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde jogar o Vira-lata Caramelo</h2>
+          <ol>
+            <li>Cadastre-se no site (em menos de 2 minutos).</li>
+            <li>Acesse a seção Cassino.</li>
+            <li>Busque por Vira-lata Caramelo e comece a jogar.</li>
+          </ol>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Lottu é Confiável?</h2>
+          <p>O <strong>Lottu</strong> valoriza seus usuários e trabalha para fornecer a melhor experiência possível. Atualmente, a plataforma conta com <strong>2.672</strong> reclamações no ReclameAqui, das quais <strong>2.110</strong> foram resolvidas — índice de solução de <strong>78.7%</strong>.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="avaliação Lottu no ReclameAqui" title="ReclameAqui - Lottu" />
+          <p>Suporte 24/7 e compromisso com resolução de problemas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Cachorro Vira-Lata Caramelo FAQ</h2>
+        <FAQ items={faqItems} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

@@ -1,0 +1,128 @@
+﻿---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import FAQ from '../../../components/FAQ.astro';
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Spaceman?", answer: "Crie uma conta no Lottu, acesse o jogo Spaceman, escolha o valor da aposta e clique em Jogar — o astronauta decola automaticamente." },
+  { question: "Posso jogar Spaceman em dispositivos móveis?", answer: "Sim. Spaceman é compatível com celulares, tablets e computadores; a interface foi otimizada para diferentes tamanhos de tela." },
+  { question: "Como funciona o saque automático e o cashout 50%?", answer: "Você pode definir um multiplicador para saque automático; o cashout parcial (50%) permite retirar metade do prêmio e manter a outra metade na rodada." },
+  { question: "Qual o maior multiplicador possível no Spaceman?", answer: "O multiplicador máximo pode chegar a 5.000x a sua aposta, mas é raro — saque antes do crash para garantir os ganhos." },
+  { question: "Como faço para sacar meus ganhos do Spaceman?", answer: "Durante a rodada, clique em Coletar para sacar; ou acesse seu perfil no Lottu para solicitar saque via PIX ou outro método disponível." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/spaceman.avif", as: "image" },
+  { href: "/assets/media/spaceman-tela.webp", as: "image" },
+  { href: "/assets/media/spaceman-x30.webp", as: "image" },
+  { href: "/assets/media/spaceman-x1.webp", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Spaceman | Jogo do Astronauta - Jogue no Lottu Cassino"
+  description="Jogue Spaceman no Lottu: defina sua aposta, acompanhe o multiplicador e saque antes do crash. Cashout parcial, auto play e até 5.000x de prêmio."
+  keywords="spaceman, jogo do astronauta, spaceman lottu, crash game"
+  canonical="https://lottu-bonus.com/jogos/crash-games/spaceman"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <section class="introduction-conteiner">
+    <div class="introduction-content">
+      <div class="introduction-description">
+        <h1>Spaceman NO Lottu: DECIDA O MOMENTO CERTO</h1>
+        <p>Você aposta. Ele decola. O multiplicador sobe — e a tensão também. Spaceman, o jogo do astronauta da Pragmatic Play, é um crash game intergaláctico onde cada segundo é uma decisão. Clique na hora certa e evite o colapso. O céu não é o limite — MAS A ESCOLHA É SUA. Jogue com moderação. Diversão responsável faz parte do jogo. Ele sobe… e você decide quando saltar. Spaceman é um crash game com tema espacial, onde o astronauta voa pelos céus com multiplicadores que podem atingir até 5.000x a sua aposta. Mas se não sacar a tempo… 💥 Você perde tudo.</p>
+        <ul>
+          <li>🚀 Apostas entre R$1 e R$500</li>
+          <li>🛸 Saque automático e parcial de 50%</li>
+          <li>🎯 Sistema Auto Play de até 100 rodadas</li>
+          <li>💥 Multiplicador máximo de 5.000x</li>
+        </ul>
+        <img src="/assets/media/spaceman.avif" alt="Spaceman crash game astronauta cassino" title="Apostar Spaceman no Lottu - Jogo astronauta" />
+        <div class="botao">
+          <a class="register" title="jogar Spaceman no Lottu" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>CLIQUE AQUI E COMECE A VIAGEM ESPACIAL AGORA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Como Jogar Spaceman</h2>
+        <ul class="symbol-list">
+          <li>Conecte-se à sua conta</li>
+          <li>Escolha o valor da aposta: de R$1 a R$500</li>
+          <li>Clique em Jogar e veja o astronauta subir</li>
+          <li>Saque antes que ele exploda!</li>
+          <li>Ou configure Auto Jogo, Saque Automático ou 50% de retirada</li>
+        </ul>
+        <img src="/assets/media/spaceman-tela.webp" class="img-horizontal" alt="Interface jogo Spaceman tela principal" title="Interface do Spaceman - Tela de apostas" />
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>ENTRE NA NAVE E COMECE SUA MISSÃO</a>
+        </div>
+        <p class="responsible-gaming">Jogue com moderação. Diversão responsável faz parte do jogo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>Como Sacar Seus Ganhos do Spaceman</h2>
+        <ol>
+          <li>💰 Lucrar é fácil — se você souber a hora de sair:</li>
+          <li>Clique em Coletar antes do crash</li>
+          <li>Ou use o recurso de Saque Automático</li>
+          <li>Quer metade? Ative o Cashout 50% e continue na rodada</li>
+          <li>O saque do saldo geral é direto no seu perfil NO Lottu</li>
+        </ol>
+        <img src="/assets/media/spaceman-x30.webp" class="img-horizontal" alt="Multiplicador x30 Spaceman ganho máximo" title="Vitória com x30 no Spaceman Lottu" />
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>COLETE SEUS GANHOS COMO UM COMANDANTE ESPACIAL</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Spaceman com Auto Play e Cashout</h2>
+        <ul>
+          <li>✅ Auto Jogo: configure 5 a 100 rodadas</li>
+          <li>✅ Saque automático com multiplicador pré-definido</li>
+          <li>✅ Cashout parcial de 50% — saque uma parte e continue voando</li>
+          <li>✅ Estatísticas da comunidade em tempo real</li>
+        </ul>
+        <img src="/assets/media/spaceman-x1.webp" class="img-horizontal" alt="Início jogo Spaceman multiplicador x1" title="Começar aposta no Spaceman Lottu" />
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE E VEJA QUEM VAI MAIS LONGE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-conteiner">
+      <h2>Spaceman FAQ</h2>
+      <script type="application/ld+json" set:html={faqStructuredData} />
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>
+

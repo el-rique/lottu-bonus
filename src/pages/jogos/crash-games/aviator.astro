@@ -1,0 +1,141 @@
+﻿---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import FAQ from '../../../components/FAQ.astro';
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a Aviator?", answer: "Para começar a jogar Aviator, basta criar uma conta e acessar o jogo no menu principal." },
+  { question: "Posso jogar Aviator em dispositivos móveis?", answer: "Sim, o Aviator é compatível com dispositivos móveis, permitindo que você jogue em qualquer lugar." },
+  { question: "Há um limite de tempo para fazer o saque?", answer: "Não há limite de tempo específico para saques, mas recomendamos verificar os termos do jogo." },
+  { question: "Qual é o melhor horário para jogar Aviator?", answer: "O melhor horário é aquele em que você se sinta mais confortável e focado para jogar." },
+  { question: "Existe alguma estratégia para jogar Aviator?", answer: "Estabelecer um orçamento e planejar suas apostas são boas práticas para melhorar sua experiência no jogo." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/aviator.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/aviator-tela-jogo.webp", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Aviator Bet | Jogo do Aviãozinho - Lottu Cassino"
+  description="Jogue Aviator no Lottu: cadastre-se grátis, acesse o jogo e aproveite multiplicadores rápidos. Cadastre-se e comece a jogar!"
+  keywords="aviator, jogo do aviãozinho, aviator lottu, crash game"
+  canonical="https://lottu-bonus.com/jogos/crash-games/aviator"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <section class="introduction-conteiner">
+    <div class="introduction-content">
+      <div class="introduction-description">
+        <h1><strong>Aviator: </strong>O Jogo do Aviãozinho no Lottu Cassino</h1>
+        <p>Apertem os cintos!<br />O Aviator, também conhecido como jogo do aviãozinho, está prestes a decolar e você não pode perder esta imersiva experiência.</p>
+        <img src="/assets/media/aviator.avif" alt="Aviator crash game aviãozinho cassino" title="Apostar Aviator no Lottu - Crash game" />
+        <p>Prepare-se para multiplicar seus ganhos em um dos melhores jogos crash da atualidade.</p><br />
+      </div>
+      <div class="botao">
+        <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Aviator" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Como Jogar no Aviator</h2>
+        <p>O Aviator é um dos jogos preferidos dos apostadores no Lottu Cassino, ao lado de títulos como Mines e outros jogos da Spribe.<br />Nesse jogo, você escolhe o valor da sua aposta e, enquanto o aviãozinho sobe, os multiplicadores aumentam exponencialmente.<br />No entanto, é preciso ficar atento ao crash — o momento em que o avião cai e a rodada acaba.</p>
+        <p>Acima de tudo, o jogo requer uma combinação de ousadia e sorte.<br />Portanto, você deve decidir se vai retirar sua aposta rapidamente para garantir um retorno menor, ou contar com a sorte para esperar multiplicadores maiores, mas com o risco de perder.</p>
+        <h3>Objetivo do Jogo <strong>Aviator</strong> no Lottu Cassino</h3>
+        <p>O principal objetivo no Aviator é resgatar sua aposta antes que o avião caia (crash).<br />Da mesma forma que no Spaceman, você pode garantir seus lucros a qualquer momento.<br />O desafio está em prever quando o avião cairá, já que isso acontece de forma aleatória.</p>
+        <p>Concluindo, se você ainda não conhece o jogo, recomendamos experimentar o Aviator demo, onde você pode jogar online grátis sem precisar apostar dinheiro.</p>
+      </div>
+      <div class="how-to-play-information">
+        <div>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/aviator-tela-jogo.webp" alt="Como Jogar no Jogo do Aviator" class="img-horizontal" />
+        </div>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Aviator" href={AFFILIATE}>Faça seu cadastro e jogue!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="winning-tips-conteiner">
+    <div class="winning-tips-content">
+      <div class="winning-tips-description">
+        <h2>Como Ganhar no Jogo do Aviator</h2>
+        <p>Embora o Aviator seja um jogo de sorte, existem algumas estratégias que podem te ajudar a aumentar suas chances de sucesso.<br />Por exemplo:</p>
+        <ol>
+          <li>Utilize os recursos do jogo para desenvolver estratégias personalizadas.</li>
+          <li>Observe outros jogadores para entender como eles jogam e aplique o que aprendeu.</li>
+          <li>Aproveite a possibilidade de fazer apostas duplas, garantindo um retorno mais seguro com uma aposta e sendo mais ousado com a outra.</li>
+          <li>Ative o saque automático, configurando um valor de multiplicador específico para garantir que sua aposta seja retirada automaticamente.</li>
+        </ol>
+        <p>Além disso, lembre-se de que o momento certo para retirar a aposta pode variar, e essa é a chave para maximizar seus ganhos.</p>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Aviator" href={AFFILIATE}>QUERO JOGAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>Como Sacar Seus Ganhos do Aviator</h2>
+        <p>Jogar o Aviator no Lottu Cassino é garantia de diversão e, acima de tudo, facilidade na hora de sacar seus prêmios.<br /><br />Para sacar seus ganhos:</p>
+        <ol>
+          <li>Vá até o menu de configurações no canto superior direito da tela.</li>
+          <li>Clique em Sacar.</li>
+          <li>Selecione o método de pagamento desejado.</li>
+          <li>Insira o valor do saque (mínimo de R$10) e sua chave Pix.</li>
+          <li>Conclua a transação.</li>
+        </ol>
+        <p>Portanto, é um processo rápido, simples e com saques ilimitados!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="where-to-play-conteiner">
+    <div class="where-to-play-content">
+      <div class="where-to-play-description">
+        <h2>Onde Jogar o Jogo do Aviator</h2>
+        <p>Para jogar o <strong>Aviator</strong>, basta acessar o site do<strong> Lottu Cassino</strong>.<br />Depois disso, siga os passos abaixo:</p>
+        <ol>
+          <li>Cadastre-se no site (em menos de 2 minutos).</li>
+          <li>Acesse a seção Cassino.</li>
+          <li>Encontre o jogo digitando Aviator na barra de busca.</li>
+          <li>Inicie sua aposta e comece a multiplicar seus ganhos de forma rápida e emocionante.</li>
+        </ol>
+        <p>Além disso, o Lottu Cassino oferece uma plataforma otimizada para jogar tanto no PC quanto no celular, garantindo que você possa aproveitar o Aviator em qualquer lugar.</p>
+        <p>Ainda não é cadastrado?<br />Não se preocupe, o processo de cadastro é rápido e em poucos minutos você já estará pronto para jogar e aproveitar todas as vantagens que o Lottu Cassino oferece.</p>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Aviator" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-conteiner">
+      <h2>Aviator FAQ</h2>
+      <script type="application/ld+json" set:html={faqStructuredData} />
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>
+

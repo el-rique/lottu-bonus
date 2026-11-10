@@ -1,0 +1,158 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  {
+    question: "Como posso começar a Balloon?",
+    answer: "Para começar a jogar Balloon, basta criar uma conta e acessar o jogo no menu principal.",
+  },
+  {
+    question: "Posso jogar Balloon em dispositivos móveis?",
+    answer: "Sim, o Balloon é compatível com dispositivos móveis, permitindo que você jogue em qualquer lugar.",
+  },
+  {
+    question: "Há um limite de tempo para fazer o saque?",
+    answer: "Não há limite de tempo específico para saques, mas recomendamos verificar os termos do jogo.",
+  },
+  {
+    question: "Qual é o melhor horário para jogar Balloon?",
+    answer: "O melhor horário é aquele em que você se sinta mais confortável e focado para jogar.",
+  },
+  {
+    question: "Existe alguma estratégia para jogar Balloon?",
+    answer: "Estabelecer um orçamento e planejar suas apostas são boas práticas para melhorar sua experiência no jogo.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-jogo-balao-cassino-online.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-tela-inicial-jogo-balao-azul.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-tela-vitoria-ganho-premio-25dmo.webp", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Balloon | Jogo do Balão - Lottu Cassino"
+  description="Jogue Balloon no Lottu Cassino: toque na hora certa, acompanhe o multiplicador subir e retire seus ganhos antes do balão estourar. Aprenda como jogar."
+  keywords="balloon, jogo do balão, balloon lottu, crash game"
+  canonical="https://lottu-bonus.com/jogos/crash-games/balloon"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+  <script type="application/ld+json" set:html={faqStructuredData} />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1><strong>Balloon no Esportes da Sorte: </strong>Toque no momento certo e descubra até onde você consegue subir!</h1>
+          <p>O balão sobe — o multiplicador cresce — e a tensão aumenta. Esse é o Balloon, o jogo onde a decisão é sua: segurar mais um segundo… ou estourar no tempo certo. No Esportes da Sorte você tem:</p>
+          <ul>
+            <li>Jogo leve e intuitivo</li>
+            <li>Multiplicadores crescentes em tempo real</li>
+            <li>Interface dinâmica e compatível com qualquer dispositivo</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-jogo-balao-cassino-online.webp" alt="Jogo Balloon com balão subindo e multiplicador ativo no Esportes da Sorte" title="Multiplicador crescendo no jogo Balloon do Esportes da Sorte" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Balloon" href={AFFILIATE}>CLIQUE E TESTE SUA ESTRATÉGIA AGORA</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar Balloon no Esportes da Sorte</h2>
+          <ol>
+            <li>Escolha o valor da aposta</li>
+            <li>O balão começa a subir</li>
+            <li>O multiplicador vai crescendo</li>
+            <li>Você pode encerrar a aposta a qualquer momento</li>
+            <li>Se o balão estourar antes… você perde. Se sair a tempo, garante o valor!</li>
+          </ol>
+          <div><img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-tela-inicial-jogo-balao-azul.webp" alt="Como Jogar no Jogo do Balloon" /></div>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Balloon" href={AFFILIATE}>JOGUE COM CONSCIÊNCIA E DIVIRTA-SE NO SEU RITMO</a></div>
+          <p class="responsible-gaming">Jogue com moderação. Diversão responsável faz parte do jogo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Balloon</h2>
+          <p>Ganhou no momento certo? Agora é hora de sacar.</p>
+          <ol>
+            <li>Acesse seu perfil no Esportes da Sorte</li>
+            <li>Clique em Saque</li>
+            <li>Escolha o método (PIX ou outro)</li>
+            <li>Informe o valor (mínimo de R$10)</li>
+            <li>Confirme e receba rápido e com segurança</li>
+          </ol>
+          <p>Portanto, é um processo rápido, simples e com saques ilimitados!</p>
+          <div><img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-tela-vitoria-ganho-premio-25dmo.webp" alt="Tela de vitória no jogo Balloon" /></div>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Balloon" href={AFFILIATE}>JOGUE E SAQUE SEM COMPLICAÇÕES</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="free-to-play-conteiner">
+      <div class="free-to-play-content">
+        <div class="free-to-play-description">
+          <h2>Jogue Balloon Grátis no Esportes da Sorte</h2>
+          <p>Quer aprender antes de apostar? No modo demonstração do Esportes da Sorte você pode:</p>
+          <ol>
+            <li>Testar a mecânica do balão subindo</li>
+            <li>Praticar o tempo de retirada</li>
+            <li>Desenvolver sua própria estratégia</li>
+          </ol>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/balloon-tela-inicial-jogo-balao-azul.webp" alt="Modo demonstração do Balloon" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Balloon" href={AFFILIATE}>JOGUE GRÁTIS AGORA MESMO E CONHEÇA O JOGO</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Esportes da Sorte é Confiável?</h2>
+          <ul>
+            <li>Suporte disponível todos os dias, a qualquer hora</li>
+            <li>Plataforma autorizada e transparente</li>
+            <li>Saques rápidos e protegidos</li>
+            <li>Interface fluida e responsiva</li>
+          </ul>
+          <img class="img-vertical" src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="Esportes da Sorte reclame aqui" />
+          <p>Isso comprova o compromisso da empresa em resolver quaisquer problemas e fornecer um suporte ao cliente de alta qualidade. Além disso, o suporte está disponível 24 horas por dia, 7 dias por semana.</p>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Balloon" href={AFFILIATE}>Cadastre-se e aproveite os benefícios do Esportes da Sorte!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Balloon FAQ</h2>
+        <FAQ items={faqItems} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

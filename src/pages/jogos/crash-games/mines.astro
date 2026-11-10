@@ -1,0 +1,141 @@
+﻿---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import FAQ from '../../../components/FAQ.astro';
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Mines?", answer: "Crie uma conta no Lottu, acesse a seção Cassino, busque por Mines e selecione o jogo; ajuste a aposta e clique em BET para iniciar a rodada." },
+  { question: "Posso jogar Mines em dispositivos móveis?", answer: "Sim. Mines é compatível com celulares, tablets e computadores — a interface é otimizada para telas menores." },
+  { question: "Qual é a aposta mínima e máxima no Mines?", answer: "A aposta mínima comum é R$1 e a máxima varia conforme a mesa (ex.: R$100). Verifique os limites diretamente na página do jogo." },
+  { question: "Como funcionam as minas e as estrelas?", answer: "Seu objetivo é revelar estrelas sem clicar em uma mina. Cada estrela aumentará o multiplicador do prêmio; ao clicar em mina, a rodada termina e a aposta é perdida." },
+  { question: "Existe modo automático ou estratégias recomendadas?", answer: "Existe Auto Play para rodadas automáticas. Estratégia recomendada: gerencie o saldo, defina limites de perda/ganho e use o modo demo para treinar sem arriscar." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/media/mines.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Mines.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Mines-resultado.jpg", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Mines | Jogo do Campo Minado - Jogue no Lottu Cassino"
+  description="Jogue Mines no Lottu: revele estrelas, desvie das minas e multiplique seus ganhos. Veja como funciona, valores de aposta, estratégias e como jogar."
+  keywords="mines, jogo do campo minado, mines lottu, mini game"
+  canonical="https://lottu-bonus.com/jogos/crash-games/mines"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <section class="introduction-conteiner">
+    <div class="introduction-content">
+      <div class="introduction-description">
+        <h1>Jogo do <strong>Mines</strong> é no Lottu Cassino</h1>
+        <p>O Mines é um jogo de crash dos mais populares no universo dos jogos online.</p>
+        <img src="/assets/media/mines.avif" alt="Mines campo minado cassino online" title="Jogar Mines no Lottu - Campo minado" />
+        <p>Portanto, se você busca diversão e grandes prêmios, o Lottu Cassino é o lugar certo para jogar.</p>
+      </div>
+      <div class="botao">
+        <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Mines" href={AFFILIATE}>Jogue e multiplique seus ganhos!</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Como Jogar no Mines</h2>
+        <p>Seu objetivo em Mines é revelar o máximo de estrelas possível sem clicar em uma mina.<br />A cada estrela descoberta, seu prêmio aumenta, podendo chegar a valores muito altos dependendo da aposta e do multiplicador.<br />Mas cuidado: se você escolher uma mina, perde tudo e a rodada acaba.</p>
+        <p>Existem três possíveis resultados em cada rodada:</p>
+        <ol>
+          <li>Você decide encerrar antes de revelar todas as estrelas e garante um prêmio parcial.</li>
+          <li>Você encontra todas as estrelas e ganha o prêmio máximo.</li>
+          <li>Você clica em uma mina e perde o valor apostado.</li>
+        </ol>
+        <p>O desafio é saber a hora certa de parar e sacar seus ganhos.</p>
+      </div>
+      <div class="how-to-play-information">
+        <div>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Mines.jpg" alt="Tutorial como jogar Mines campo minado" title="Guia completo Mines no Lottu Cassino" width="850" height="500" />
+        </div>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogue Mines" href={AFFILIATE}>Cadastre-se e jogue!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="winning-tips-conteiner">
+    <div class="winning-tips-content">
+      <div class="winning-tips-description">
+        <h2>Como Ganhar no Jogo do Mines</h2>
+        <p>Apostar no Mines é simples: escolha o valor da aposta e selecione as casas que quer revelar. Ajuste o número de minas para controlar risco x recompensa.</p>
+        <h5>Apostas Comuns</h5>
+        <p>A aposta mais comum citada é R$1, a média pode variar conforme jogadores.</p>
+        <ul>
+          <li><strong>Aposta Mínima: </strong>R$1</li>
+          <li><strong>Aposta Máxima: </strong>R$100</li>
+        </ul>
+        <h5>Modo Automático</h5>
+        <p>Use o Auto Play para definir número de rodadas e aposta automática; é prático, mas exija atenção aos limites.</p>
+        <div class="how-to-play-information">
+          <div>
+            <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/Mines-resultado.jpg" alt="Resultado ganho Mines estratégia" title="Exemplo de vitória no Mines Lottu" width="850" height="500" />
+          </div>
+          <div class="botao">
+            <a class="register" title="jogue Mines" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE E TENHA CHANCES DE GANHAR!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>Como Sacar Seus Ganhos no Jogo do Mines</h2>
+        <p>Jogar o Mines no <strong>Lottu Cassino</strong> não é apenas emocionante, mas também prático para sacar suas recompensas.</p>
+        <ol>
+          <li>Abra as configurações no canto superior direito.</li>
+          <li>Selecione Sacar.</li>
+          <li>Escolha o método de pagamento e informe o valor (mínimo R$10).</li>
+          <li>Confirme e aguarde o processamento conforme o método escolhido.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="where-to-play-conteiner">
+    <div class="where-to-play-content">
+      <div class="where-to-play-description">
+        <h2>Onde jogar o Mines</h2>
+        <p>Para jogar o <strong>Mines</strong>, cadastre-se no site do<strong> Lottu Cassino</strong>, acesse a seção Cassino e busque por Mines na barra de busca.</p>
+        <div class="botao">
+          <a class="register" title="jogue Mines" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-conteiner">
+      <h2>Mines FAQ</h2>
+      <script type="application/ld+json" set:html={faqStructuredData} />
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>
+

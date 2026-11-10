@@ -1,0 +1,163 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  {
+    question: "Como fazer apostas de futebol no Lottu?",
+    answer: "Acesse a seção Esportes no Lottu, selecione Futebol, escolha o campeonato e a partida desejada, clique nas odds que deseja apostar, defina o valor e confirme seu palpite no boletim de apostas.",
+  },
+  {
+    question: "Quais campeonatos de futebol estão disponíveis?",
+    answer: "O Lottu oferece apostas em diversos campeonatos como Brasileirão, Libertadores, Champions League, Premier League, La Liga, Bundesliga, Copa do Brasil, estaduais e muitos outros torneios nacionais e internacionais.",
+  },
+  {
+    question: "Posso apostar em futebol ao vivo?",
+    answer: "Sim. O Lottu oferece apostas ao vivo com odds atualizadas em tempo real durante as partidas. Você pode acompanhar estatísticas e fazer apostas enquanto o jogo acontece.",
+  },
+  {
+    question: "Quais tipos de apostas de futebol posso fazer?",
+    answer: "Você pode apostar em resultado final, ambas marcam, total de gols, handicap asiático, escanteios, cartões, artilheiro, resultado exato, dupla chance e muitos outros mercados especiais.",
+  },
+  {
+    question: "Qual é o valor mínimo para apostar em futebol?",
+    answer: "O valor mínimo de aposta geralmente começa em R$1,00, podendo variar conforme o tipo de aposta e mercado escolhido. Não há limite máximo desde que dentro das odds estabelecidas.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "/futebol-apostas.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/futebol-mercados.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/campeonatos-futebol.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Apostas de Futebol | Melhores Odds e Campeonatos - Lottu"
+  description="Aposte em futebol no Lottu: Brasileirão, Champions, Premier League, Copa do Mundo e muito mais. Odds competitivas, apostas ao vivo e diversos mercados."
+  keywords="apostas futebol, futebol lottu, odds futebol, bet esportiva"
+  canonical="https://lottu-bonus.com/jogos/como-funciona/futebol"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+  <script type="application/ld+json" set:html={faqStructuredData} />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Apostas de Futebol: Aposte nos Melhores Campeonatos e Ganhe</h1>
+          <p>As <strong>apostas de futebol</strong> no Lottu permitem que você aposte nos principais campeonatos do Brasil e do mundo com as melhores odds do mercado.</p>
+          <div><img src="/futebol-apostas.avif" alt="Apostas de futebol Lottu odds" title="Apostar em futebol no Lottu" /></div>
+          <p>Portanto, se você é apaixonado por futebol e quer transformar seu conhecimento em ganhos, o Lottu é a plataforma ideal para você.</p><br />
+        </div>
+        <div class="botao"><a class="register" title="Aposte em futebol agora" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Faça sua aposta de futebol agora!</a></div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Fazer Apostas de Futebol</h2>
+          <p>Apostar em futebol no Lottu é simples e intuitivo! ⚽ Escolha seu campeonato favorito, analise as odds e faça seus palpites em poucos cliques.<br />Você pode apostar antes do jogo ou ao vivo, acompanhando as estatísticas em tempo real.</p>
+          <ol>
+            <li>Acesse a seção Esportes e selecione Futebol.</li>
+            <li>Escolha o campeonato e a partida desejada.</li>
+            <li>Clique nas odds dos mercados que deseja apostar.</li>
+            <li>Defina o valor da aposta no boletim e confirme.</li>
+          </ol>
+          <p>Apostas mínimas a partir de R$1,00. Combine múltiplas apostas em um único bilhete para aumentar os ganhos. Aposte com responsabilidade.</p>
+          <div class="how-to-play-information">
+            <div class="botao"><a class="register" target="_blank" title="Cadastre-se e aposte em futebol" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e comece a apostar!</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Principais Mercados de Apostas de Futebol</h2>
+          <p>O <strong>Lottu</strong> oferece dezenas de mercados de apostas para cada partida de futebol, permitindo que você explore diferentes estratégias e oportunidades de ganho.</p>
+          <h3>Mercados Mais Populares</h3>
+          <ul>
+            <li><strong>Resultado Final (1X2):</strong> Aposte na vitória do mandante, empate ou vitória do visitante.</li>
+            <li><strong>Ambas Marcam:</strong> Preveja se os dois times farão gol durante a partida.</li>
+            <li><strong>Total de Gols:</strong> Aposte se haverá mais ou menos gols que o número estabelecido (over/under).</li>
+            <li><strong>Handicap Asiático:</strong> Aposta com vantagem ou desvantagem virtual para equilibrar as odds.</li>
+            <li><strong>Resultado Exato:</strong> Acerte o placar exato da partida para ganhos maiores.</li>
+            <li><strong>Escanteios e Cartões:</strong> Aposte no número de escanteios ou cartões da partida.</li>
+            <li><strong>Primeiro/Último Gol:</strong> Preveja qual time marcará primeiro ou último.</li>
+            <li><strong>Artilheiro:</strong> Aposte em qual jogador marcará gol durante a partida.</li>
+          </ul>
+          <p>Todos os mercados possuem <strong>odds competitivas</strong> e são atualizados em tempo real durante as apostas ao vivo.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/futebol-mercados.jpg" alt="Mercados de apostas futebol Lottu" title="Variedade de mercados de futebol" />
+          <div class="botao"><a class="register" target="_blank" title="Explore todos os mercados" rel="noopener noreferrer sponsored" href={AFFILIATE}>Explore todos os mercados de futebol!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar seus Ganhos de Apostas</h2>
+          <p>Ganhou nas apostas de futebol? O saque no Lottu é rápido e seguro. Acesse seu perfil, vá até a seção Saque, escolha o método preferido (PIX, transferência bancária etc.), informe o valor mínimo (geralmente R$10) e confirme a operação.</p>
+          <p>O PIX é processado em minutos. Outros métodos podem levar de 1 a 3 dias úteis. Verifique os limites e prazos de cada opção.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Campeonatos Disponíveis para Apostar</h2>
+          <ol>
+            <li><strong>Brasil:</strong> Brasileirão Série A, B e C, Copa do Brasil, estaduais (Paulista, Carioca, Mineiro, Gaúcho).</li>
+            <li><strong>Sul-americana:</strong> Copa Libertadores, Copa Sudamericana, Recopa Sul-Americana.</li>
+            <li><strong>Europa:</strong> Champions League, Europa League, Premier League, La Liga, Serie A, Bundesliga, Ligue 1.</li>
+            <li><strong>Internacionais:</strong> Copa do Mundo, Eurocopa, Copa América, eliminatórias e amistosos.</li>
+          </ol>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/campeonatos-futebol.jpg" alt="Campeonatos futebol apostas disponíveis" title="Principais campeonatos para apostar" />
+          <div class="botao"><a class="register" title="Aposte nos principais campeonatos" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e aposte nos melhores campeonatos!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Por Que Apostar em Futebol no Lottu?</h2>
+          <p>O <strong>Lottu</strong> oferece as melhores odds do mercado, transmissão ao vivo de partidas, estatísticas detalhadas, cash out antecipado, suporte 24/7 e segurança certificada. Aposte com responsabilidade.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="Lottu apostas confiável" title="Reputação e segurança nas apostas" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e aproveite as melhores odds</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Apostas de Futebol FAQ</h2>
+        <FAQ items={faqItems} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

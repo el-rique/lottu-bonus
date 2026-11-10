@@ -1,0 +1,140 @@
+﻿---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import FAQ from '../../../components/FAQ.astro';
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Speed Blackjack?", answer: "Basta criar uma conta, entrar na mesa Speed Blackjack e selecionar o valor da aposta. As cartas são distribuídas automaticamente quando a rodada começa." },
+  { question: "Posso jogar em dispositivos móveis?", answer: "Sim, é compatível com celulares, tablets e computadores; a experiência é otimizada para telas móveis." },
+  { question: "Qual o pagamento do Blackjack?", answer: "Blackjack paga 3:2; o seguro paga 2:1. A maioria das apostas padrão paga 1:1." },
+  { question: "Como faço para sacar meus ganhos?", answer: "Acesse seu perfil, solicite o saque e escolha o método disponível (PIX, transferência, etc.). Verifique os limites mínimos e prazos no site do cassino." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "/assets/images/Speed-Blackjack.avif", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Speed Blackjack 1 Ruby | Blackjack Rápido - Lottu Cassino"
+  description="Jogue Speed Blackjack no Lottu Cassino: ritmo acelerado, rodadas rápidas e crupiês ao vivo. Regras, pagamentos e como começar a jogar."
+  keywords="blackjack, blackjack online, speed blackjack, 21 lottu"
+  canonical="https://lottu-bonus.com/jogos/cassino-ao-vivo/blackjack"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <section class="introduction-conteiner">
+    <div class="introduction-content">
+      <div class="introduction-description">
+        <h1>Speed Blackjack 1 Ruby - Jogue Blackjack Rápido e Emocionante</h1>
+        <p><strong>Speed Blackjack 1 Ruby</strong> é uma variante de ritmo acelerado do clássico <em>Blackjack online ao vivo</em>. Ideal para jogadores que buscam emoção e estratégia em tempo real, esse jogo é oferecido por <strong>cassinos online licenciados</strong> com crupiês reais e transmissão de alta qualidade.</p>
+        <img src="/assets/images/Speed-Blackjack.avif" alt="Jogo Speed Blackjack online" title="Jogue Speed Blackjack grátis no Cassino Lottu" />
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" title="jogar Speed Blackjack no Lottu" href={AFFILIATE}>Comece a Jogar Speed Blackjack Agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Regras do Speed Blackjack 1 Ruby</h2>
+        <ul class="symbol-list">
+          <li>8 baralhos padrão de 52 cartas.</li>
+          <li>O crupiê compra até 16 e para no 17.</li>
+          <li>Permitido dobrar com qualquer combinação inicial.</li>
+          <li>É possível dividir cartas do mesmo valor uma vez por mão.</li>
+          <li>Ás pode valer 1 ou 11.</li>
+          <li>Blackjack paga 3:2 e seguro paga 2:1.</li>
+          <li>Empates encerram a rodada sem vencedores.</li>
+        </ul>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Jogar Speed Blackjack</a>
+        </div>
+        <p class="responsible-gaming">Jogue com moderação. Diversão responsável faz parte do jogo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>O que é Speed Blackjack?</h2>
+        <p>Nessa modalidade, os jogadores competem <strong>contra o crupiê</strong> e tomam decisões simultâneas, o que torna a rodada mais ágil. Com até 7 lugares na mesa, o objetivo permanece o mesmo: <strong>somar 21 pontos ou chegar o mais próximo possível sem ultrapassar</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Como Jogar Blackjack Online</h2>
+        <p>Para iniciar, selecione o valor da aposta. As cartas são distribuídas rapidamente após o cronômetro. Se você receber um <strong>Ás e uma carta de valor 10</strong>, você tem um <strong>Blackjack</strong> instantâneo!</p>
+        <p>Em seguida, escolha sua jogada: <strong>Pedir</strong>, <strong>Parar</strong>, <strong>Dobrar</strong> ou <strong>Dividir</strong>. O crupiê revelará sua mão e as cartas adicionais se necessário. O jogador mais próximo de 21 vence.</p>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE AGORA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-play-conteiner">
+    <div class="how-to-play-content">
+      <div class="how-to-play-description">
+        <h2>Valores das Cartas no Blackjack</h2>
+        <ul class="symbol-list">
+          <li>2 a 10: valor nominal</li>
+          <li>J, Q, K: valem 10 pontos</li>
+          <li>Ás: vale 1 ou 11 pontos</li>
+        </ul>
+        <p>Exemplos:</p>
+        <ul class="symbol-list">
+          <li>7 + 4 = 11</li>
+          <li>K + Q = 20</li>
+          <li>A + 10 = Blackjack</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="withdrawal-conteiner">
+    <div class="withdrawal-content">
+      <div class="withdrawal-description">
+        <h2>Benefícios do Speed Blackjack</h2>
+        <ul class="symbol-list">
+          <li>Rodadas mais rápidas e dinâmicas</li>
+          <li>Interação com crupiês reais</li>
+          <li>Alta transmissão de vídeo ao vivo</li>
+          <li>Ideal para jogadores experientes</li>
+        </ul>
+        <div class="botao">
+          <a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>JOGUE E VEJA QUEM VAI MAIS LONGE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-conteiner">
+      <h2>Speed Blackjack FAQ</h2>
+      <script type="application/ld+json" set:html={faqStructuredData} />
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+</BaseLayout>
+

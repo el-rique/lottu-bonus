@@ -1,0 +1,162 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Como posso começar a jogar Fortune Rabbit?", answer: "Crie uma conta no Lottu, acesse a seção Cassino, procure por Fortune Rabbit e clique para abrir o jogo; ajuste a aposta e gire as bobinas." },
+  { question: "Posso jogar Fortune Rabbit em dispositivos móveis?", answer: "Sim. Fortune Rabbit é compatível com celulares, tablets e computadores, com interface otimizada para telas menores." },
+  { question: "Qual é o valor mínimo de aposta e o prêmio máximo?", answer: "O valor mínimo costuma ser R$0,50 e o prêmio pode chegar a valores altos dependendo dos multiplicadores e recursos do jogo (ex.: até 5000x conforme mencionado)." },
+  { question: "Quais são os símbolos especiais do jogo?", answer: "O Coelho Wild substitui outros símbolos para formar combinações vencedoras; além disso, existem símbolos com pagamentos baixos, médios e altos que determinam os prêmios." },
+  { question: "Existe alguma estratégia para jogar Fortune Rabbit?", answer: "Gerencie seu saldo, defina limites de perda/ganho e aproveite o modo demo para treinar sem arriscar saldo real; jogue com responsabilidade." }
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads = [
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/Esportes-da-sorte-Fortune-Rabbit.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-rabbit.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-rabbit-mega-ganho.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" }
+];
+---
+
+<BaseLayout
+  title="Fortune Rabbit | Jogo do Coelho - Lottu Cassino"
+  description="Jogue Fortune Rabbit no Lottu Cassino: símbolos especiais, recursos de bônus e ganhos que podem multiplicar sua aposta. Aprenda como jogar e aumente suas chances."
+  keywords="fortune rabbit, jogo do coelho, fortune rabbit lottu, slot"
+  canonical="https://lottu-bonus.com/jogos/slots/fortune-rabbit"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Jogo do <strong>Fortune Rabbit</strong> é no Lottu: Multiplique seus Ganhos</h1>
+          <p>O <strong>Fortune Rabbit</strong>, mais conhecido como jogo do Coelho, é um dos slots mais populares no
+            universo dos jogos online.</p><img
+            src="https://static.sportingtech.com/esportesdasortevip/upload_files/Esportes-da-sorte-Fortune-Rabbit.jpg"
+            alt="Lottu - fortune Rabbit" title="Fortune Rabbit no Lottu" />
+          <p>Portanto, se você busca diversão e grandes prêmios, o Lottu é o lugar certo para jogar.</p><br />
+        </div>
+        <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Rabbit"
+            href={AFFILIATE}>JOGUE
+            E TENHA CHANCES DE GANHAR!</a></div>
+      </div>
+    </section>
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar no Jogo do Coelho</h2>
+          <p>Imagine uma máquina caça-níquel 🎰 que aumenta suas chances de ganhar prêmios incríveis. Esse é o jogo do
+            Coelhinho.</p>
+          <ol>
+            <li>Use os botões - e + para ajustar o valor da aposta.</li>
+            <li>Clique no botão verde para começar a rodada.</li>
+            <li>Torça para combinar 3 símbolos iguais nas linhas de pagamento.</li>
+          </ol>
+          <p>Valor mínimo de aposta comum: R$0,50. O jogo pode oferecer recursos que aumentam ganhos; jogue com
+            responsabilidade.</p>
+        </div>
+        <div class="how-to-play-information">
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Rabbit"
+              href={AFFILIATE}>Cadastre-se
+              e jogue!</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Como Ganhar no Jogo do Coelho</h2>
+          <p>Combine 3 símbolos iguais em uma das linhas de pagamento para receber prêmios. Símbolos de pagamento baixo,
+            médio e alto determinam os valores ganhos; o Coelho Wild substitui outros símbolos.</p>
+          <div class="winning-tips-img"><img
+              src="https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-rabbit.jpg"
+              alt="Como Jogar no Jogo do Fortune Rabbit" width="400" height="650"
+              title="Fortune Rabbit - símbolos e pagamentos" /></div>
+          <h3>Quais são os Símbolos do Fortune Rabbit?</h3>
+          <ul>
+            <li><strong>Símbolos de Pagamento Baixo:</strong> Cenoura, foguete, moedas.</li>
+            <li><strong>Símbolos de Pagamento Médio:</strong> Envelopes, saco de moedas.</li>
+            <li><strong>Símbolos de Pagamento Alto:</strong> Lingote de ouro, coelho wild.</li>
+          </ul>
+          <p>O recurso Rodadas da Fortuna pode ser ativado aleatoriamente e aumentar suas chances de vitória.</p>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Rabbit"
+              href={AFFILIATE}>Cadastre-se
+              e aumente suas chances</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos no Jogo do Coelhinho</h2>
+          <p>O processo de saque é simples e direto:</p>
+          <ol>
+            <li>Pressione o ícone de configurações no canto superior direito.</li>
+            <li>Selecione Sacar.</li>
+            <li>Escolha o método de pagamento (PIX, transferência, etc.).</li>
+            <li>Informe o valor mínimo (ex.: R$10) e confirme.</li>
+          </ol>
+          <p>Recebimentos e prazos dependem do método escolhido.</p>
+        </div>
+      </div>
+    </section>
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Onde Jogar o Jogo do Coelho</h2>
+          <ol>
+            <li>Cadastre-se no site do Lottu (menos de 2 minutos).</li>
+            <li>Acesse a seção Cassino.</li>
+            <li>Busque por Fortune Rabbit e comece a girar.</li>
+          </ol><img src="https://static.sportingtech.com/esportesdasortevip/upload_files/fortune-rabbit-mega-ganho.jpg"
+            alt="mega ganho Coelhinho" width="400" height="600" title="Fortune Rabbit - mega ganho" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Rabbit"
+              href={AFFILIATE}>Cadastre-se
+              e jogue</a></div>
+        </div>
+      </div>
+    </section>
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Lottu é Confiável?</h2>
+          <p>O <strong>Lottu</strong> valoriza seus usuários, oferece suporte 24/7 e mantém políticas claras. Jogue com
+            responsabilidade.</p>
+          <div class="trustworthiness-description-div-img"><img
+              src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png"
+              alt="Lottu reclame aqui" title="Reclame Aqui - Lottu" /></div>
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer" title="jogue Fortune Rabbit"
+              href={AFFILIATE}>Cadastre-se
+              e aproveite os benefícios</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Fortune Rabbit FAQ</h2>
+        <script type="application/ld+json" set:html={faqStructuredData} />
+        <div class="faq-content">
+          <FAQ items={faqItems} />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

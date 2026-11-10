@@ -1,0 +1,178 @@
+---
+/**
+ * variant:
+ *  "home"    → nav#navbar   + Modal + Menu + Burger
+ *  "game"    → nav#navbar-secondary + Modal + BackToHome (no menu)
+ *  "article" → nav#navbar-secondary + Modal + Menu + Burger
+ */
+interface Props {
+  variant?: "home" | "game" | "article";
+}
+
+const { variant = "home" } = Astro.props;
+const navId = variant === "home" ? "navbar" : "navbar-secondary";
+const showMenu = variant !== "game";
+---
+
+<header id="header">
+  <nav id={navId}>
+    <a href="/" class="logo" aria-label="Lottu Bônus - Início">Lottu Bônus</a>
+
+    {variant === "game" ? (
+      <a title="back-to-home" class="back-to-home" href="/">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="22" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+        </svg>
+        <span class="back-home-text">Home</span>
+      </a>
+    ) : (
+      <>
+        <ul id="menu" aria-label="Menu principal">
+          <li><a href="/">Início</a></li>
+          <li><a href="/jogos/como-funciona/como-ativar-bonus">Como Ativar</a></li>
+          <li><a href="/jogos/regulamento-confiabilidade/regras-rollover">Regras</a></li>
+          <li><a href="/jogos/jogos-para-usar-bonus">Jogos</a></li>
+          <li><a href="/jogos/regulamento-confiabilidade/lottu-bet-confiavel">Review</a></li>
+        </ul>
+        <button type="button" class="btn none" id="btn-burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+          </svg>
+        </button>
+      </>
+    )}
+  </nav>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background-color: transparent;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1500px;
+    position: relative;
+    padding: 12px 16px;
+    align-items: center;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  #menu {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    gap: var(--spacing-xxl);
+    padding: 0;
+  }
+
+  #menu a {
+    font-size: var(--font-xs);
+    transition: color 0.3s ease-in;
+  }
+
+  #menu a:hover {
+    color: var(--color-accent);
+  }
+
+  .scrolled {
+    background-color: rgba(10, 10, 10, 0.98);
+  }
+
+  #btn-burger {
+    display: none;
+  }
+
+  #navbar-secondary {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .back-to-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.25rem;
+    gap: 0.5rem;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 8px 14px;
+    border-radius: 12px;
+    transition: all 0.3s ease-in;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 99;
+    box-shadow: none;
+  }
+
+  .back-to-home:hover {
+    background-color: #ffffff;
+    color: var(--color-secondary);
+  }
+
+  @media (max-width: 1250px) {
+    #menu { gap: var(--spacing-md); }
+    #menu a { font-size: var(--font-xs); }
+  }
+
+  @media (max-width: 1024px) {
+    header {
+      background-color: rgba(10, 10, 10, 0.98);
+    }
+
+    #menu.opened {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 100%;
+      z-index: 999;
+      transform: scaleY(1);
+      opacity: 1;
+      pointer-events: auto;
+      background-color: rgba(10, 10, 10, 0.98);
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: end;
+      gap: var(--spacing-md);
+    }
+
+    #menu {
+      pointer-events: none;
+      display: none;
+    }
+
+    nav {
+      align-items: center;
+      padding: 14px;
+    }
+
+    #btn-burger {
+      display: contents;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .back-home-text { display: none; }
+  }
+</style>

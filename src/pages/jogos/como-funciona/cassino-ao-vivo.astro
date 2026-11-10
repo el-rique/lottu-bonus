@@ -1,0 +1,160 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/game-detail.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  {
+    question: "Como funciona o Cassino Ao Vivo no Lottu?",
+    answer: "O Cassino Ao Vivo oferece jogos em tempo real com dealers profissionais. Basta acessar a seção Live Casino no Lottu, escolher o jogo desejado e começar a jogar através de transmissão ao vivo em alta qualidade.",
+  },
+  {
+    question: "Quais jogos estão disponíveis no Cassino Ao Vivo?",
+    answer: "Oferecemos roleta ao vivo, blackjack, bacará, poker e game shows. Todos com dealers reais transmitidos em tempo real para proporcionar experiência imersiva de cassino físico.",
+  },
+  {
+    question: "Posso jogar no Cassino Ao Vivo pelo celular?",
+    answer: "Sim. Todos os jogos ao vivo são otimizados para dispositivos móveis, tablets e computadores, com interface responsiva e qualidade de streaming adaptada à sua conexão.",
+  },
+  {
+    question: "Qual é o valor mínimo para apostar no Live Casino?",
+    answer: "Os valores variam por jogo, mas geralmente começam a partir de R$1,00 na roleta e R$5,00 no blackjack e bacará. Mesas VIP têm limites mais altos para apostadores experientes.",
+  },
+  {
+    question: "Os jogos ao vivo são seguros e justos?",
+    answer: "Sim. Todos os jogos são transmitidos ao vivo com dealers reais, garantindo transparência total. O Lottu trabalha com provedores licenciados e certificados internacionalmente.",
+  },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
+const preloads = [
+  { href: "/live-casino.avif", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/live-casino-dealers.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/live-casino-interface.jpg", as: "image" },
+  { href: "https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png", as: "image" },
+];
+---
+
+<BaseLayout
+  title="Cassino Ao Vivo | Dealers Reais em HD - Lottu Cassino"
+  description="Jogue no Cassino Ao Vivo do Lottu: dealers reais, transmissões em HD, roleta, blackjack, bacará, poker e game shows. Acesse, escolha sua mesa e aposte."
+  keywords="cassino ao vivo, live casino, dealers reais, lottu cassino"
+  canonical="https://lottu-bonus.com/jogos/como-funciona/cassino-ao-vivo"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="game" />
+  <script type="application/ld+json" set:html={faqStructuredData} />
+
+  <div id="content-area">
+    <section class="introduction-conteiner">
+      <div class="introduction-content">
+        <div class="introduction-description">
+          <h1>Cassino Ao Vivo: Jogue com Dealers Reais em Tempo Real</h1>
+          <p>O <strong>Cassino Ao Vivo</strong> do Lottu traz a experiência autêntica de um cassino físico direto para sua tela, com dealers profissionais transmitindo jogos em tempo real.</p>
+          <div><img src="/assets/media/live-casino.webp" alt="Cassino ao vivo dealers reais Lottu" title="Jogar no Cassino Ao Vivo - Dealers reais" /></div>
+          <p>Portanto, se você busca emoção e interação real, o Lottu Live Casino é o lugar perfeito para você.</p><br />
+        </div>
+        <div class="botao"><a class="register" title="Jogue no Cassino Ao Vivo" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Entre no Cassino Ao Vivo agora!</a></div>
+      </div>
+    </section>
+
+    <section class="how-to-play-conteiner">
+      <div class="how-to-play-content">
+        <div class="how-to-play-description">
+          <h2>Como Jogar no Cassino Ao Vivo</h2>
+          <p>Imagine estar em um cassino de verdade 🎰 sem sair de casa! No Cassino Ao Vivo, você joga com dealers reais através de transmissão em alta definição.<br />Para começar, escolha um jogo, selecione sua mesa preferida e faça suas apostas enquanto interage com o dealer.</p>
+          <ol>
+            <li>Acesse a seção Cassino Ao Vivo no Lottu.</li>
+            <li>Escolha o jogo: roleta, blackjack, bacará ou game shows.</li>
+            <li>Selecione a mesa e defina o valor da sua aposta.</li>
+            <li>Acompanhe a transmissão ao vivo e torça pela vitória!</li>
+          </ol>
+          <p>Apostas mínimas a partir de R$1,00. Mesas VIP disponíveis para apostas mais altas. Jogue com responsabilidade.</p>
+          <div class="how-to-play-information">
+            <div class="botao"><a class="register" target="_blank" title="Cadastre-se no Cassino Ao Vivo" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue ao vivo!</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="winning-tips-conteiner">
+      <div class="winning-tips-content">
+        <div class="winning-tips-description">
+          <h2>Jogos Disponíveis no Cassino Ao Vivo</h2>
+          <p>O <strong>Cassino Ao Vivo</strong> do Lottu oferece uma variedade de jogos clássicos com dealers reais, cada um com suas características e estratégias únicas.</p>
+          <h3>Principais Jogos Ao Vivo</h3>
+          <ul>
+            <li><strong>Roleta Ao Vivo:</strong> Europeia, americana e francesa. Apostas externas e internas com pagamentos de até 35:1.</li>
+            <li><strong>Blackjack Ao Vivo:</strong> Jogue contra o dealer em múltiplas mesas simultâneas. Objetivo: chegar a 21 sem estourar.</li>
+            <li><strong>Bacará Ao Vivo:</strong> Aposte no jogador, banca ou empate. Jogo elegante com regras simples e ótimas chances.</li>
+            <li><strong>Poker Ao Vivo:</strong> Variações como Texas Hold`em e Caribbean Stud com dealers profissionais.</li>
+            <li><strong>Game Shows:</strong> Jogos interativos como Crazy Time, Monopoly Live e Dream Catcher com prêmios multiplicadores.</li>
+          </ul>
+          <p>Todos os jogos contam com <strong>dealers profissionais</strong>, transmissão em HD e chat ao vivo para interação em tempo real.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/live-casino-dealers.jpg" alt="Dealers profissionais cassino ao vivo" title="Jogos com dealers reais no Cassino Ao Vivo" />
+          <div class="botao"><a class="register" target="_blank" title="Jogue nos melhores jogos ao vivo" rel="noopener noreferrer sponsored" href={AFFILIATE}>Experimente os jogos ao vivo agora!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="withdrawal-conteiner">
+      <div class="withdrawal-content">
+        <div class="withdrawal-description">
+          <h2>Como Sacar Seus Ganhos do Cassino Ao Vivo</h2>
+          <p>Ganhou no Cassino Ao Vivo? O processo de saque no Lottu é rápido e seguro: acesse seu perfil, vá até Saque, escolha o método (PIX, transferência bancária etc.), informe o valor mínimo (ex.: R$10) e confirme.</p>
+          <p>O PIX geralmente é processado em minutos. Os prazos e limites podem variar conforme o método escolhido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="where-to-play-conteiner">
+      <div class="where-to-play-content">
+        <div class="where-to-play-description">
+          <h2>Como Acessar o Cassino Ao Vivo no Lottu</h2>
+          <ol>
+            <li>Cadastre-se no site do Lottu (processo rápido e fácil).</li>
+            <li>Acesse a seção Cassino Ao Vivo ou Live Casino.</li>
+            <li>Escolha seu jogo favorito e selecione uma mesa.</li>
+            <li>Faça sua aposta e comece a jogar com dealers reais!</li>
+          </ol>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/live-casino-interface.jpg" alt="Interface cassino ao vivo Lottu" title="Tela de jogos ao vivo no Lottu" />
+          <div class="botao"><a class="register" title="Cadastre-se no Cassino Ao Vivo" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e jogue ao vivo agora!</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustworthiness-conteiner">
+      <div class="trustworthiness-content">
+        <div class="trustworthiness-description">
+          <h2>Por Que Escolher o Cassino Ao Vivo do Lottu?</h2>
+          <p>O <strong>Lottu</strong> oferece experiência premium com dealers profissionais, transmissão em alta qualidade, suporte 24/7 e segurança certificada. Jogue com responsabilidade.</p>
+          <img src="https://static.sportingtech.com/esportesdasortevip/upload_files/reclameaqui.png" alt="Lottu reclame aqui confiável" title="Reputação e segurança Lottu" />
+          <div class="botao"><a class="register" target="_blank" rel="noopener noreferrer sponsored" href={AFFILIATE}>Cadastre-se e aproveite o melhor cassino ao vivo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq-conteiner">
+        <h2>Cassino Ao Vivo FAQ</h2>
+        <FAQ items={faqItems} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

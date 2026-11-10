@@ -1,0 +1,209 @@
+﻿---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import FAQ from "../../../components/FAQ.astro";
+import "../../../styles/article.css";
+
+const AFFILIATE = "https://www.lottu.bet.br/register?affiliate_id=68a88453de213f0029a2b34d&ngx_campaign_id=68e52977e8f18f00097fd1fd&ngx_source_id=sitelottubonus";
+
+const faqItems = [
+  { question: "Posso sacar o depósito antes de cumprir o rollover?", answer: "Não. Geralmente, você não pode sacar nenhum valor (nem o depósito original) até que o rollover do bônus seja completamente cumprido." },
+  { question: "O que é um rollover de 30x?", answer: "Um rollover de 30x significa que você precisa apostar 30 vezes o valor do bônus recebido. Se recebeu R$50, deve apostar R$1.500 no total." },
+  { question: "Ganhos do bônus também têm rollover?", answer: "Sim. Os ganhos obtidos com o bônus também estão sujeitos ao mesmo requisito de rollover. Você precisará apostar novamente o valor dos ganhos antes de poder sacar." },
+  { question: "Qual é o melhor jogo para cumprir o rollover?", answer: "Os slots (caça-níqueis) com 100% de contribuição são ideais. Escolha jogos com RTP alto (acima de 96%) e volatilidade média para equilibrar risco e ganhos." },
+];
+
+const faqStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+});
+
+const preloads: { href: string; as: string }[] = [];
+---
+
+<BaseLayout
+  title="Regras do Lottu Bônus: Entenda o Rollover e Como Sacar"
+  description="Entenda todas as regras do Lottu Bônus. Explicamos o que é rollover, prazo de validade e como converter seu saldo promocional em dinheiro real para saque."
+  keywords="lottu bonus regras, rollover, como sacar bonus lottu"
+  canonical="https://lottu-bonus.com/jogos/regulamento-confiabilidade/regras-rollover"
+  preloads={preloads}
+>
+  <Header slot="before-main" variant="article" />
+
+  <div id="content-area">
+    <section class="article-conteiner">
+      <div class="article-content">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Início</a>
+          <span>Regras e Rollover</span>
+        </nav>
+        <div class="article-hero">
+          <h1>Regras do Lottu Bônus: Entendendo o Rollover</h1>
+          <p>Guia completo sobre os termos e condições do bônus de boas-vindas da Lottu Bet.</p>
+        </div>
+        <h2>O que é o Rollover do Bônus?</h2>
+        <p>Para manter um ambiente de jogo justo e sustentável, todas as promoções de cassino possuem termos e
+          condições. Compreender as <strong>regras do lottu bonus</strong> é fundamental para que você saiba
+          exatamente o que precisa fazer para converter seu saldo promocional em dinheiro real.</p>
+
+        <div class="alert alert-success">
+          <strong>✅ Definição:</strong> O rollover é o requisito de apostas exigido pelo cassino antes que um
+          saque possa ser realizado. Ele representa o número de vezes que o valor do bônus (ou a soma do
+          depósito + bônus) deve ser apostado na plataforma. Somente após cumprir essa meta, o saldo é
+          liberado para retirada.
+        </div>
+
+        <p>Por exemplo, se você recebeu R$50 de bônus e o rollover exigido é de 30x, você precisará realizar um
+          total de R$1.500 em apostas (R$50 x 30) antes de poder solicitar um saque.</p>
+
+        <h3>Exemplo Prático de Rollover</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Depósito</th>
+              <th>Bônus Recebido</th>
+              <th>Rollover Exigido</th>
+              <th>Total de Apostas Necessárias</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Exemplo 1</td>
+              <td>R$50</td>
+              <td>R$50</td>
+              <td>30x</td>
+              <td>R$1.500 (R$50 x 30)</td>
+            </tr>
+            <tr>
+              <td>Exemplo 2</td>
+              <td>R$100</td>
+              <td>R$100</td>
+              <td>30x</td>
+              <td>R$3.000 (R$100 x 30)</td>
+            </tr>
+            <tr>
+              <td>Exemplo 3</td>
+              <td>R$200</td>
+              <td>R$200</td>
+              <td>30x</td>
+              <td>R$6.000 (R$200 x 30)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Como Sacar o Bônus Lottu?</h2>
+        <p>Para saber <strong>como sacar bonus lottu</strong>, você deve acompanhar o progresso do seu rollover
+          no painel da sua conta. O processo envolve as seguintes etapas:</p>
+
+        <h3>Etapas para Solicitar um Saque</h3>
+        <ol>
+          <li><strong>Acompanhamento:</strong> Verifique a barra de progresso do bônus na seção "Minha Conta"
+            ou "Saldo".</li>
+          <li><strong>Cumprimento da Meta:</strong> Continue jogando nos slots elegíveis até que a barra
+            atinja 100%.</li>
+          <li><strong>Conversão:</strong> Assim que o rollover for concluído, o saldo de bônus será
+            automaticamente transferido para a sua carteira de dinheiro real.</li>
+          <li><strong>Solicitação de Saque:</strong> Acesse a área de saques, escolha o PIX como método,
+            insira o valor desejado e confirme a transação.</li>
+        </ol>
+
+        <div class="alert alert-warning">
+          <strong>⚠️ Importante:</strong> O saque via PIX geralmente é processado em poucos minutos após a
+          solicitação. Não há taxas ocultas para saques na Lottu Bet.
+        </div>
+
+        <h2>Prazos e Validade da Promoção</h2>
+        <p>Outra regra crucial é o prazo de validade. O Lottu Bônus não é vitalício. Após a ativação, você tem
+          um período determinado (geralmente entre 7 e 30 dias) para cumprir todo o requisito de apostas.</p>
+
+        <h3>O que Acontece se o Prazo Expirar?</h3>
+        <p>Se o prazo expirar e o rollover não tiver sido concluído, tanto o saldo de bônus quanto os ganhos
+          provenientes dele serão cancelados. Você manterá apenas o seu depósito original (dinheiro real).</p>
+
+        <h3>Dicas para Cumprir o Rollover no Prazo</h3>
+        <ul>
+          <li>Comece a jogar imediatamente após ativar o bônus.</li>
+          <li>Foque em slots com 100% de contribuição para o rollover.</li>
+          <li>Acompanhe regularmente o progresso na sua conta.</li>
+          <li>Não deixe para os últimos dias para cumprir a meta.</li>
+        </ul>
+
+        <h2>Contribuição dos Jogos para o Rollover</h2>
+        <p>Nem todos os jogos contribuem igualmente para o cumprimento do rollover. Veja a tabela abaixo:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Categoria de Jogo</th>
+              <th>Contribuição para o Rollover</th>
+              <th>Recomendação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Slots (Caça-níqueis)</td>
+              <td>100%</td>
+              <td>✅ Ideal para cumprir a meta rapidamente</td>
+            </tr>
+            <tr>
+              <td>Roleta e Blackjack</td>
+              <td>10% a 20%</td>
+              <td>⚠️ Evite usar o bônus nestes jogos</td>
+            </tr>
+            <tr>
+              <td>Cassino ao Vivo</td>
+              <td>0% a 10%</td>
+              <td>âŒ Geralmente não elegíveis para o bônus</td>
+            </tr>
+            <tr>
+              <td>Crash Games (Aviator)</td>
+              <td>Variável</td>
+              <td>â“ Consulte os termos específicos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>É fundamental focar nos slots (caça-níqueis), pois eles geralmente contribuem com 100% do valor
+          apostado para o cumprimento do rollover.</p>
+
+        <h2>Restrições e Limitações Comuns</h2>
+
+        <h3>Limite de Saque Máximo</h3>
+        <p>Alguns cassinos estabelecem um limite máximo de saque para ganhos provenientes do bônus. Verifique os
+          termos específicos da Lottu Bet para saber qual é este limite.</p>
+
+        <h3>Requisitos de Verificação de Identidade</h3>
+        <p>Antes de sacar qualquer valor, você pode ser solicitado a verificar sua identidade fornecendo
+          documentos como RG, CPF ou comprovante de residência. Isso é uma medida de segurança padrão.</p>
+
+        <h3>Proibição de Apostas Combinadas</h3>
+        <p>Alguns cassinos proíbem o uso de bônus em apostas combinadas (parlay). Certifique-se de fazer apostas
+          simples para garantir que cada aposta conte para o rollover.</p>
+
+        <div class="alert alert-warning">
+          <strong>⚠️ Aviso:</strong> Violar as restrições pode resultar no cancelamento do bônus e confisco
+          dos ganhos. Sempre leia os termos completos antes de começar a jogar.
+        </div>
+
+        <h2>Perguntas Frequentes sobre Rollover</h2>
+
+        <FAQ items={faqItems} />
+
+        <script type="application/ld+json" set:html={faqStructuredData} />
+
+        <h2>Pronto para Começar?</h2>
+        <p>Agora que você entende as regras, ative seu Lottu Bônus e comece a jogar!</p>
+        <div class="botao"><a class="register"
+            href={AFFILIATE}
+            target="_blank" rel="noopener noreferrer">Ativar Bônus Agora</a></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
